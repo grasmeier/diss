@@ -1,0 +1,294 @@
+\chapter*{Notations}
+
+\manualmark
+\markboth{Notations}{Notations}
+
+\section*{Abbreviations}
+
+\begin{longtable}[l]{ll}
+APRB			& Amplitude modulated pseudo random binary\\
+ATP				& Adenosine triphosphate\\
+CNS				& Central nervous system\\
+DIP				& Distal interphalangeal\\
+DOF				& Degree of freedom\\		
+EDC				& Extensor digitorum communis\\
+EIP				& Extensor indices proprius\\
+EM				& Error model \\
+EMG				& Electromyography \\
+EvMA			& Estimation of voluntary muscle activity \\
+FDP				& Flexor digitorum profundus\\
+FDS				& Flexor digitorum superficialis\\
+GN 				& Gauss-Newton\\
+GS 				& Gradient search\\
+ITAE 			& Integral time multiplied absolute error\\
+LM 				& Levenberg-Marquardt\\
+LMS 			& Least mean squares\\
+LP 				& Linearly parameterized\\
+l.p.e.		& Linear persistent excitation/linearly persistently exciting\\
+l.o.l.		& Location of lesion\\
+LTI				& Linear time invariant \\
+LAP				& Linear adaptive prediction \\
+m.				& Musculus\\
+MA				& Moving average\\
+MAP				& Muscle action potential\\
+MCP				& Metacarpophalangeal\\
+MIL				& Matrix inversion lemma\\
+MLP				& Multi layer perceptron\\
+MU				& Motor unit\\
+MVC				& Maximum voluntary contraction\\
+NARX      & Nonlinear autoregressive with exogenous input\\
+NFIR			& Nonlinear finite impulse response\\
+NLP				& Nonlinearly parameterized\\
+NMSE			& Normalized mean square error\\
+NRBF			& Normalized radial basis function\\
+n.l.p.e.  & Nonlinear local persistent excitation\\
+PCA				& Principle component analysis\\
+PID				& Proportional-integral-derivative\\
+PIP				& Proximal interphalangeal\\
+PSD				& Power spectral density\\
+RBF				& Radial basis function\\
+RLS				& Recursive least squares\\
+RMS       & Root mean square\\
+SNLP			& Separable nonlinearly parameterized\\
+t.s.l.		& Time since lesion\\
+wRMS			& Weighted RMS\\
+WSS				& Wide sense stationary\\
+ZDVC			& Zero degree voluntary contraction\\
+\end{longtable}
+
+\vspace{0.5cm}
+\section*{Conventions}
+
+\minisec{Scalars, Vectors, and Matrices} 
+
+\emph{Scalars} are denoted by upper and lower case letters in italic
+type. \emph{Vectors} are denoted by underlined lower case letters in italic type, as the vector $\ux$ is composed of elements $x_i$. \emph{Matrices} are denoted by underlined upper case letters in italic type, as the matrix $\uM$ is composed of elements $M_{ij}$ ($i^{\text{th}}$ row, $j^{\text{th}}$ column).
+
+\begin{longtable}[l]{ll}
+$x$ or $X$ 				& Scalar\\
+$\ux$ 						& Vector \\
+$\uX$ 						& Matrix\\
+$\uX^{T}$ 				& Transposed of $\uX$\\
+$\uX^{-1}$ 				& Inverse of $\uX$\\
+$\uX^{+}$ 				& Pseudoinverse of $\uX$\\
+$f(\cdot)$ 				& Scalar function \\
+$\uf(\cdot)$ 			& Vector function \\
+$\hat x$ 					& Estimated or predicted value of $x$ \\
+$\tx$ 						& Estimation error: $\tx=x-\hx$ \\
+$\overline x$			& Average value of $x$\\
+$\|\cdot \|_p$ 		& p-norm \\
+$\nabla f(\ux)=\frac{\partial f(\ux)}{\partial \ux}$ & Gradient vector \\
+\end{longtable}
+
+
+
+%\pagebreak
+%\section*{Subscripts and Superscripts}
+%
+%\begin{tabular}{ll}
+%
+%$x^{d}$ & desired value of $x$, set value for the control loop \\
+%$x_{\text{max}}$ & maximum value of $x$ \\
+%$x_{\text{min}}$ & minimum value of $x$ \\
+%$(\cdot )^{-1}$ & inverse \\
+%$(\cdot )^+$ & pseudo-inverse\\
+%$(\cdot )^T$ & transposed \\
+%$(\cdot )^*$ & optimal or expected value \\
+%$(\cdot )_{pos}$ & position \\
+%$(\cdot )_{pose}$ & pose \\
+%$(\cdot )_{tran}$ & translation \\
+%$(\cdot )_{rot}$ & rotation \\
+%$(\cdot )_{mono}$ & mono-focal \\
+%$(\cdot )_{multi}$ & multi-focal \\
+%\end{tabular}
+%\nopagebreak
+\vspace{0.5cm}
+\section*{Symbols}
+
+\minisec{General} 
+\begin{longtable}[l]{ll}
+$\uA_w$										& System matrix of the LTI-system $\mW$\\
+$\ub_w$										& Input vector of the LTI-system $\mW$\\
+$\uc_w$										& Output vector of the LTI-system $\mW$\\
+$f_k$											& Discrete frequency variable\\
+$f_{rep}$								  & Repetition rate of \rpms\\
+$f_s$										  & Sampling rate\\
+$G_w(s)$									& Transfer function of the LTI-system $\mW$\\
+$G_{w,obs}(s)$						& Transfer function of the Luenberger observer of the LTI-system $\mW$\\
+$\uI$											& Unity matrix\\
+$I_c$										  & 95\,\% confidence interval\\
+$j$					    					& Discrete time variable occurring in discrete integrals\\
+$k$												& Discrete time variable\\
+$k_{rep}$								  & Discrete repetition period of \rpms\\
+$N$   										& Some discrete time period\\
+$t$   										& Time\\
+$T$   										& A certain time period\\
+$T_1$											& Time constant of a PT$_1$-system\\
+$T_p$										  & Pulse width of \rpms\\
+$T_s$       							& Sampling time, $T_s=0.001\,$s throughout the thesis\\
+$T_{set}$									& Settling time of a dynamic system\\
+$T_{sys}$									& System time constant of a desired polynomial\\
+$u$         							& Input of an single input system\\
+$\uv$       							& Input vector of a multiple input system\\
+$\uw$											& Unit vector\\
+$\mW$											& SISO LTI-system with $\uA_w$, $\ub_w$, $\uc^T_w$\\
+$\mW_{obs}$								& LTI-system constituted by a Luenberger observer\\
+$\ux$      		  					& State of a dynamic system\\
+$y$         							& System output\\
+$\delta(k)$							  & Discrete Dirac Delta function\\
+$\sigma$								  & Standard deviation\\
+\end{longtable}
+
+\minisec{System Identification} 
+\begin{longtable}[l]{ll}
+$A_j(u)$											& Activation function of an NRBF-network\\
+$e$														& Output error \\
+$e_n$													& Output error of the nonlinear subsystem $n(\cdot)$\\
+$e_e$													& Augmented error\\
+$e_{obs}$											& Observer error\\ 
+$\uf^{\htheta}$					  		& Update term of the SLS-algorithm\\
+$E(\cdot)$										& Error criterion\\
+$g$														& Gain ration of modified LM-algorithm\\
+$\ug(\cdot)$									& Nonlinear function that defines the adaptive law\\
+$\uh$	  											& Truncated impulse response\\
+$\uH$													& Hessian matrix\\
+$I$						  							& Integral\\
+$k_{d,c}$											& Discrete delay time of hardware and physiological delay\\
+$k_h$													& Discrete time horizon of exponential forgetting\\
+$k_h$													& Discrete hold time of an APRB-signal\\
+$\ull$           							& Gain vector of a Luenberger Observer\\
+$L(\cdot)$ 										& Model of the error criterion $E(\cdot)$\\
+$m$ 													& Number of linear parameters\\
+$m_r$													& Number of orthonormal basis functions\\
+$m_{N1}$								  		& Number of radial basis functions of the nonlinearity $\hN_1(\alpha)$\\
+$m_{N2}$											& Number of radial basis functions of the nonlinearity $\hN_2(\da)$\\
+$n(\cdot)$  									& Nonlinear Subsystem\\	
+$p$ 													& Total number of parameters\\
+$\uP$													& Symmetric positive definite matrix\\
+$q$ 													& Number of nonlinear parameters\\
+$r_a$													& Actual reduction of the error criterion\\
+$r_p$													& Predicted reduction of the error criterion\\
+$\uQ$													& Symmetric positive definite matrix\\
+$\ur_i$												& Orthonormal basis function\\
+$\uR$													& Matrix of orthonormal basis functions\\
+$\uR$													& Direction matrix of the LM-algorithm (damped Hessian)\\
+$s_r$													& Condition ratio of the modified LM-algorithm\\
+$S_i$													& Singular Values of the direction matrix $\uR$\\ 
+$T_{d,c}$											& Complete delay consisting of hardware delay and physiological delay\\
+$T_h$   											& Time horizon of exponential forgetting\\
+$T_h$   											& Hold time of an APRB-signal\\
+$V(\cdot)$										& Lyapunov candidate\\
+$y_n$       									& Output of a nonlinear subsystem\\
+$z$         									& Measurement noise\\
+
+%%%%%%Griechische Buchstaben%%%%%
+$\beta$												& Threshold value of the LM-algorithm\\
+$\gamma$											& Estimator gain\\
+$\gamma_{\heta}$							& Estimator gain for nonlinear parameters (SLS-algorithm)\\
+$\gamma_{\htheta}$						& Estimator gain for linear parameters (SLS-algorithm)\\
+$\delta$        							& Damping factor of the LM-algorithm\\
+$\delta_s$      					    & Damping factor of the modified LM-algorithm\\
+$\epsilon$								    & Output error of the SLS-algorithm\\
+$\epsilon_{obs}$							& Observer error in EM C2\\
+$\eta$      									& Nonlinear system parameter\\
+$\theta$   							  		& Linear system parameter\\
+$\kappa$											& Gain factor of the LM-algorithm\\
+$\lambda$											& Forgetting factor of exponential forgetting\\
+$\nu$													& Threshold value of the modified LM-algorithm\\
+$\xi$       									& General system parameter \\
+$\Delta \xi$					    		& Distance between two activation functions\\
+$\uPi$												& Covariance matrix of the RLS-algorithm\\
+$\osigma$							    		& Normalized smoothing parameter of an NRBF-network\\
+$\tau$												& Time variable occurring in integrals\\
+$\uphi$ 	      							& Input regressor\\
+$\ouphi$											& Filtered input regressor\\
+$\uPhi$												& Matrix of input regressors\\
+$\uchi$     									& State of an LTI-system\\
+$\upsi$												& Gradient vector\\
+%$\kappa$,$\epsilon$,$\epsilon_1$ & Positive constants\\
+\end{longtable}
+
+\minisec{Neuromuscular and Biomechanical Modeling} 
+\begin{longtable}[l]{ll}
+%%%%%Lateinische Buchstaben%%%%%
+$d_s$										& Specific density\\
+$D_{rel}$								& Damping constant of the relaxation model\\
+$E_{rel}$								& Elasticity constant of the relaxation model\\
+$f_l$										& Scaling of the force-length-curve\\
+$f_v$										& Scaling of the force-velocity-curve\\
+$F_M$										& Muscle force\\
+$F_s$										& Sensor force\\
+$G_a(s)$								& Transfer function of the muscle twitch model\\
+$G_e(s)$								& Transfer function of the temporal summation model\\
+$h$											& Tendon leverage\\
+$I(k)$									& Stimulation intensity\\
+$I_{sat}$								& Saturation intensity of the recruitment model\\
+$I_{thr}$								& Threshold intensity of the recruitment model\\
+$J$											& Moment of inertia\\
+$l$											& Tendon length\\
+$L_i$										& Length of the i$^{\text{th}}$ finger phalanx\\
+$m_i$										& Mass of the i$^{\text{th}}$ finger phalanx\\
+$N_1(\alpha)$						& Static nonlinearity of the segment dynamics\\
+$N_2(\da)$						& Static nonlinearity of the segment dynamics\\
+$r$											& Radius of the MCP-joint\\
+$R_i$										& Radius of the i$^{\text{th}}$ finger phalanx\\
+$s(\alpha,\da)$				  & Spastic joint torque\\
+$s_t(\alpha)$						& Tonic component of the spastic joint torque\\
+$s_{ph}(\da)$						& Phasic component of the spastic joint torque\\
+$T_a$										& Time constant of the muscle twitch model\\
+$T_e$										& Time constant of the temporal summation model\\
+$T_{d,hw}$							& Hardware delay\\
+$T_{d,ph}$							& Physiological delay\\
+$T_{rel}$								& Time constant of the relaxation model\\
+$u(k)$									& Input of the plant "\rpmsh-stimulated muscle"\\
+%%%%%Griechische  Buchstaben%%%%%
+$\alpha_i$							& Angle of the i$^{\text{th}}$ joint\\
+$\alpha_{sat}$					& Curvature parameter of the recruitment model\\
+$\alpha_{thr}$					& Curvature parameter of the recruitment model\\
+$\beta_1$, $\beta_2$		& Gain and offset parameters of the recruitment model\\ 
+$\gamma_{p}$						& Pennation angle\\
+$\rho(\cdot)$						& Function of motor unit recruitment\\
+$\tau_{ep}$							& Elastic joint torque of a muscle-tendon unit\\
+$\tau_f$								& Friction torque\\
+$\tau_g$								& Gravitational torque\\
+$\tau_i$								& Torque of the i$^{\text{th}}$ joint\\
+$\tau_n$								& Net joint torque\\
+$\tau_{me}$							& Sensor Torque of the Fingertester\\
+$\tau_M$								& Muscle torque\\
+$\tau_{rel}$						& Torque of relaxation characteristics\\
+$\tau_{vm}$							& Torque of viscous muscle-tendon properties\\
+\end{longtable}
+
+\minisec{Applications} 
+\begin{longtable}[l]{ll}
+%%%%%Lateinische Buchstaben%%%%%
+$a(k)$								& Measure for the voluntary muscle activity\\
+$a_i$								  & EMG-amplitude\\
+$b_j$									& Coefficient of the LAP-filter\\
+$c(k)$								& Raw EMG-signal\\
+$d_t$									& Relative difference of the tonic spasticity component evaluation\\
+$d_{ph}$							& Relative difference of the phasic spasticity component evaluation\\
+$K_a$									& Gain of the adaptive trajectory generation\\
+$K_{RMS}$							& Length of the RMS-filter\\
+$s(k)$								& EMG-signal inside the EvMA-cascade\\
+$S_1$, $S_2$					& Muting periods of the EMG-amplifier\\
+$w$									  & Input of a system with state feedback\\
+$y_d$									& Desired output of a controlled system\\
+
+%%%%%Griechische  Buchstaben%%%%%
+$\uGamma$							& Eigenvector matrix\\
+$\iota$								& Additive noise term\\
+$\ukappa$					    & State feedback vector\\
+$\kappa_I$					  & Gain of the integral controller\\
+$\lambda_i$						& Eigenvalues of the covariance matrix\\
+$\uLambda$						& Diagonal matrix of eigenvalues\\
+$\nu$					        & Virtual system input\\
+$\uXi$								& Transformation matrix of PCA\\
+$\chi_I$					    & State variable of the integral controller\\
+$\upsilon$						& Weighting factor of the wRMS-filter\\
+$\uPsi$								& Covariance matrix\\
+$\omega_0$						& Characteristic frequency of an ITAE-polynomial\\
+\end{longtable}
+
+\automark[section]{chapter}
+

@@ -1,0 +1,26 @@
+% chapter introduction 
+
+\chapter{Introduction}
+
+\section{Challenges}
+
+
+\section{Main Contributions and Outline of this Thesis}
+In this dissertation, a general framework on robotic grasping is developed. The framework provides mobile manipulation systems the capability to conduct a wide range of grasping and manipulation tasks. In our work, we consider grasping as a whole process, which can be divided into three phases in the order of time: pre-grasp phase, grasp motion phase and force closure phase. A perception-planning-control loop is involved in each of these phases. Our framework contains a set of  methods to handle the problems in the perception-planning-control loop during the whole grasping process systematically. One major problem to overcome in grasping is handling uncertainty. On one side, the framework aims to model the uncertainty probabilistically to provide object state as a distribution to the system, on the other side our framework provides methods for actively exploration and tracking which help to reduce the uncertainty. Differ from the previous work, the framework itself creates a new paradigm to solve grasping as a whole. A short overview and the contributions of the methods we propose in the framework can be summarized in the following aspects. 
+
+
+\subsubsection{Probabilistic Modelling and Maximization of Grasping Success}
+Uncertainty of the real world, unknown dynamics of objects and error in a perceptional system makes a robot difficult to guarantee that a grasp action will lead to a success. To manage the complexity and uncertainty in the real world, modelling the success probability of a grasping action is a promising method to handle these problems. In Chapter 3 we describe a probabilistic approach to model the grasping process. The success probability is calculated based on a model of conditional grasping success and a model of object posterior. This method reduces the complexity of directly modelling the grasp success probability. It splits a complex modelling problem into two independent models which are not correlated with each other. The conditional grasp success model describes the probability of success by taken an grasp action, under the condition that the object state is given. It is modelled using four criteria, which maps the principle of underlying grasp physics, actuation uncertainty, representation uncertainty and a task  affordance to the model. Object posterior models the object state distribution after a series of observations are conducted. Depending on the choice of the representation, for some real world objects whose shape can be approximated by a group of shape primitives, the dimension of the object state space is small. The object posterior of these objects can be computed by e.g. Bayes filtering. For most real  world objects, the dimension of state space is large because of their individual courses of the surface, we propose a new surface representation and fusion method to compute the posterior. The underlying structure of the surface representation is a variance augmented signed distance function. This representation allows temporal and spacial fusion by multiple depth cameras with  individual noise characteristics. The result of the sensor fusion is a uncertainty-aware surface distribution which approximate the object posterior. After modelling the grasp success probability, the aim  is to search for a grasp action that maximizes the success probability. For this purpose, we propose a Monte Carlo based method to find an optimal grasp trajectory. This method seamlessly connects grasp perception and grasp control in a systematic way, while serves as a foundation for grasping unknown objects. The computational time of our method performs 30 times faster than the state-of-the-art. Experimental results verifies a significant grasping accuracy improvement is shown for grasping real world unknown objects for using the proposed method. 
+
+
+\subsubsection{Reducing Perceptual Uncertainty by Grasp Strategies}
+ 
+
+
+
+\subsubsection{Boosting Grasping Robustness and Flexibility by an Adaptive Control Architecture}
+
+
+\section{Outline}
+
+

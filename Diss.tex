@@ -1,0 +1,129 @@
+\documentclass[a4paper,          %Miktex 2.7
+               numbers=noenddot,
+               12pt,
+               twoside,
+               footinclude=false,
+               headinclude,
+               headsepline,
+               openany,
+               headings=normal,
+               %draft]{scrbook} %Schnelles kompilieren ohne Bilder
+               ]{scrbook}
+               
+%\documentclass[a4paper,         %Miktex 2.4-2.6
+%               pointlessnumbers,
+%               12pt,
+%               twoside,
+%               footexclude,
+%               headinclude,
+%               headsepline,
+%               openany,
+%               normalheadings,
+%               draft]{scrbook} %Schnelles kompilieren ohne Bilder
+%               %]{scrbook}               
+               
+ 
+\usepackage{graphicx}
+%\usepackage{psfrag}
+\usepackage{amsmath,amssymb,amsfonts,url,titlesec,setspace,nicefrac,setspace,slashbox,longtable}
+\usepackage{bibtopic}
+\usepackage{scrpage2} % easy header and footer
+\usepackage{floatflt}
+\usepackage{color}
+\usepackage[latin1]{inputenc}
+\usepackage[ngerman,american]{babel}
+\usepackage[sort,square,compress]{natbib} %replacement for cite
+\usepackage{array}    % extended tabular environment
+
+% after all packages loaded, calc pagelayout with [xx] binding correction and {xx}DIV (see chapter 2.4 of koma-script doku)
+\typearea[18mm]{19} % calc pagemargins and linewidth,
+                    % [18mm]{19} gives us about 160mm textwidth
+
+% Koma-spezifische Definitionen
+%\clubpenalty=10000 \widowpenalty=10000 \interlinepenalty=1000
+\clubpenalty=100 \widowpenalty=100 \interlinepenalty=100
+\automark[section]{chapter}
+\addtokomafont{caption}{\sffamily}
+\setkomafont{captionlabel}{\sffamily\bfseries}
+\pagestyle{scrheadings}
+
+\renewcommand{\baselinestretch}{1.05}
+%\lineskiplimit=-10pt %Erlaubt Unterschneidungen zwischen Zeilen
+%\titlespacing{\subsubsection}{0pt}{0cm}{-0.2cm}
+
+%Änderung der caption-lables in Fig. und Tab. 
+\addto\captionsamerican{
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tab.}
+}
+
+% Eigene Definitionen
+\input{newcom}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+%% Titelseite, Danksagung, Inhalt, Notation, Abstract, römische Seitenzahlen
+\frontmatter
+
+\input{titlepage}
+\cleardoublepage
+\thispagestyle{empty}
+
+\input{preface}
+\cleardoublepage
+\thispagestyle{empty}
+
+\tableofcontents
+
+%\input{notations}
+%\cleardoublepage
+%\thispagestyle{empty}
+
+\input{abstract}
+\cleardoublepage
+\thispagestyle{empty}
+
+
+%% Hauptteil mit allen Kapiteln, Arabische Numerierung
+\mainmatter
+\sloppy
+%\setlength{\parskip}{2ex}
+\setlength{\parindent}{5mm}
+
+\input{chapter1.tex}
+\input{chapter2.tex}
+\input{chapter3.tex}
+\input{chapter4.tex}
+\input{chapter5.tex}
+\input{chapter6.tex}
+\input{chapter7.tex}
+
+\begin{appendix}		
+%\input{appendixA}
+%\input{appendixB}	
+%\input{appendixC}
+\end{appendix}	
+
+
+\newpage
+\lineskiplimit=0pt
+\renewcommand{\baselinestretch}{0.7}
+
+%%Geteilte Bibliography mit bibtopic-package
+\bibliographystyle{plain}   
+
+\addchap{Bibliography}
+\begin{btSect}{IEEEabrv,../bib/abbrev_strings,../bib/foreign_tech,../bib/foreign_med,../bib/rpms_med,../bib/rpms_tech,../bib/misc,../bib/eas,../bib/datasheet}
+\btPrintCited
+\end{btSect}
+
+\begin{btSect}[plain]{../bib/my_pubs}
+\section*{Own Publications and Supervised Student Projects}
+\btPrintAll
+\end{btSect}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
