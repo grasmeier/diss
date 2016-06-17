@@ -1,4 +1,4 @@
-\chapter{A Probabilistic Approach to Grasp Trajectory Synthesis}
+\chapter{A Probabilistic Approach to Grasp Synthesis}
 
 \section{Introduction}
 
@@ -7,9 +7,28 @@
 \section{Contributions}
 
 \section{Probabilistic modelling of grasping success}
+Grasp motion, is the key phase
+in the entire grasping process. During this phase, the robot has to estimate the object pose and geometry, predict the likelihood of success with a pre-touch configuration and choose the action that maximizes the
+grasping success probability. This sections gives the mathematic model of grasping success, followed by a the proof of the model with an 1-D grasping example. 
+\subsection{Mathematic Model}
+First we define a random variable $S \in \{ \text{success} , \text{failure} \}$ as the outcome of a specific grasp motion $\mathcal{G} = \{g_1, \dots ,g_n$\}, with $g_1, \dots ,g_n$ representing a set of gripper configurations and poses. We define $\text{P}({S = \text{success}}|\mathcal{G},\mathcal{Z})$ as the marginal probability that the grasp $\mathcal{G}$ succeeds based on the sensor measurement history $\mathcal{Z}=\lbrace z_0, \dots ,z_M \rbrace$. It is not straightforward to compute the marginal probability $\text{P}({S = \text{success}}|\mathcal{G},\mathcal{Z})$ directly without knowing the state of the object 
+$x_o$. However, we can compute it by separating it into two probability terms: 
+\begin{equation}
+\text{P}(S) := \text{P}(S | \mathcal{G} ,\mathcal{Z}) = \int_{x_o} \text{P} (S | x_o,\mathcal{G} )\cdot p(x_o|\mathcal{Z}) dx_o. 
+\label{e_grasp_success}
+\end{equation}
+We call the first term $P(S | x_o,\mathcal{G})$ conditional grasping success model. It indicates how likely a specific grasping action $\mathcal{G}$ will lead to a success given the object state $x_o$. The second term $p(x_o|\mathcal{Z})$ represents the posterior probability of the object given a series of observations, which quantifies the perception uncertainty. In this way, the problem of predicting the marginal grasp success probability is simplified to model the $P(S | x_o,\mathcal{G})$, and to model the perception uncertainty. 
+
+After the marginal grasp probability $\text{P}(S)$ is computed, the next step is to find an optimal grasping motion $\mathcal{G}_\text{opt}$ that maximizes the marginal grasp success probability:
+\begin{equation}
+\mathcal{G}_\text{opt} = \argmax_\mathcal{G} \text{P}(S).
+\label{eq_g_opt}
+\end{equation}
+ 
 
 
-\subsection{Proof of concept using a 1-D grasp example}
+
+\subsection{Proof of concept}
 
 \section{Conditional grasp success model for 3-D rigid objects (CGM)}
 
