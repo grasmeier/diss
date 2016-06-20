@@ -22,7 +22,7 @@
 %               draft]{scrbook} %Schnelles kompilieren ohne Bilder
 %               %]{scrbook}               
                
- 
+
 \usepackage{graphicx}
 %\usepackage{psfrag}
 \usepackage{amsmath,amssymb,amsfonts,url,titlesec,setspace,nicefrac,setspace,slashbox,longtable}
@@ -30,6 +30,7 @@
 \usepackage{scrpage2} % easy header and footer
 \usepackage{floatflt}
 \usepackage{color}
+%\usepackage[utf8]{inputenc}
 \usepackage[latin1]{inputenc}
 \usepackage[ngerman,american]{babel}
 \usepackage[sort,square,compress]{natbib} %replacement for cite
@@ -59,7 +60,20 @@
 
 % Eigene Definitionen
 \DeclareMathOperator*{\argmax}{arg\,max}
-
+\graphicspath{{figure/}}
+\usepackage{subcaption} 
+\captionsetup{compatibility=false}
+ % assumes amsmath package installed
+\newcommand{\todo}[1]{{\color{blue} #1}}		
+% customized command
+\DeclareMathOperator*{\marginalprob}{\textbf{?}{P}($S$)}
+\def\mean#1{\left< #1 \right>}
+\usepackage{bm}
+\usepackage{wasysym}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{subcaption}
+ \renewcommand{\baselinestretch}{1.15} 
 \input{newcom}
 
 
