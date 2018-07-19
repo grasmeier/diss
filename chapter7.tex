@@ -1,1 +1,27 @@
 \chapter{Conclusion and Future Work}
+
+\section{Concluding remarks}
+In this dissertation, an integrated and general system is developed to cover various aspects in robotic grasping. The system allows a mobile manipulator to perform robust grasping under different levels of prior knowledge, task requirements and sensing capabilities. In order to bring various grasping relevant aspects under the same framework, a probabilistic graphical model that based on the Bayesian network is proposed to formulate the grasping problem. This model contains a set of grasping relevant variables and represent the joint distribution of these variables. The advantage of using the proposed model is that it simplifies the modeling of complex joint distribution over many variables by small conditional probability distributions which are easy to  design. Thus, the only difference between different grasping scenarios exist in that some variables are observable according to a task and prior knowledge. The goal of different grasping problems remains same: selecting the best action to maximize the probability of success. The problem of three challenging grasping scenarios are formulated using the model and explored in chapter 3,4 and 5 respectively. 
+
+In chapter 3, the problem of assembly is addressed. In this scenario, the robot is required to grasp known objects in a task oriented manner so that the assembly can be conducted. In this scenario, a skill framework is proposed to tackle the challenge of grasping under task constraint. Within the skill framework, two high- level skills are proposed to handle the complete sequence from the object perception, the reasoning of task oriented grasp to the coordinating of actuators for grasp execution. The reusable high level skills provide an intuitive way of parameterizing an assembly task. In addition, both intermediate base positions and arm base coordinated motions are planned during the execution, which contributes to the successful and efficient accomplishment of the task. 
+
+In chapter 4, we focus on the synthesis aspect of grasping. The robot is required to perceive and generate a suitable grasp configuration for an object which is presented to it for the first time. A new uncertainty-aware surface representation, as well as a sensor fusion method tailored for the representation are proposed for the object perception. This method allows fusing data from multiple sensors in real time. As a result, this reduces the measurement uncertainty and provides a detailed model and efficient surface query for grasp synthesis. To generate a feasible grasp configuration, an object representation independent model is proposed to predict the likelihood of grasp success for a given a grasp configuration. The final grasp is selected by a simulated annealing method which finds the most promising and precision grasp contact points. 
+
+In chapter 5, the control aspect of grasping is studied. In this scenario, the robot is required to grasp very light objects, however, the dimension of them are unknown. In addition, the sensor provided in this scenario has a limited sensing capability and produces very noisy data.  An adaptive grasp control architecture is proposed to tackle this challenging scenario. The control architecture allows a robot to flexibly switch the combination of various actuators to mimic how a human performs grasping.  In addition, the perceptual result can be fed back to grasp synthesis so that grasp can be executed in closed-loop. 
+
+In each scenario, a massive number of grasping experiments using real robot is performed. The results are compared to state-of-the-art methods, which proves the effectiveness of the proposed system. 
+
+\section{Future directions}
+The work presented in this dissertation provide a solid contribution to bridging the gap between human and robotic grasping. The ideas demonstrated so far also motivate several future research directions:  
+
+\paragraph{Learning from grasp experience:}
+As the computational power of processors increases and the cost of building robots reduces, nowadays it is feasible to perform large scale real world grasp experiments and train models with a large number of parameters. Therefore, more work should be done to exploit this advantage so that a robot can learn both from own experience and  experience of other robots. 
+
+\paragraph{Exploit multi-modal information: }
+
+in this work, we mainly use the depth information of sensors to determine the state of an object. For grasping, color information and tactile information are also important information source not only in predicting grasp success but also can be used in grasp control. How to combine multi- modal sensory input in a systematic way for a robust grasping control is an interesting research direction. 
+
+\paragraph{Handle environment constraints: }
+
+ A table-top environment is chosen for the grasping scenarios presented in this work. Most objects can be retrieved by grasping directly. However, for tasks like retrieving objects from narrow space, the current approach can not handle this task. Humans usually exploit the environment as a help rather than as obstacles. They use more sophisticated manipulation skills such as pushing, sliding to reconfigure the object prior to grasping. This requires a well understanding of environment dynamics and a compliant control mechanism. How to represent  and retrieve the knowledge and combine them into a compliant robot controller can be an interesting direction.    
+

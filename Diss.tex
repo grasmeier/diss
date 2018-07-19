@@ -1,4 +1,4 @@
-\documentclass[a4paper,          %Miktex 2.7
+	\documentclass[a4paper,          %Miktex 2.7
                numbers=noenddot,
                12pt,
                twoside,
@@ -33,8 +33,9 @@
 %\usepackage[utf8]{inputenc}
 \usepackage[latin1]{inputenc}
 \usepackage[ngerman,american]{babel}
-\usepackage[sort,square,compress]{natbib} %replacement for cite
+\usepackage[sort,square,compress,numbers]{natbib} %replacement for cite
 \usepackage{array}    % extended tabular environment
+\usepackage{tabulary}
 
 % after all packages loaded, calc pagelayout with [xx] binding correction and {xx}DIV (see chapter 2.4 of koma-script doku)
 \typearea[18mm]{19} % calc pagemargins and linewidth,
@@ -64,6 +65,10 @@
 \usepackage{subcaption} 
 \captionsetup{compatibility=false}
 \captionsetup[subfigure]{position=b}
+\DeclareMathOperator*{\pr}{\text{P}}
+\DeclareMathOperator*{\pd}{\text{p}}
+\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
+	
 
  % assumes amsmath package installed
 \newcommand{\todo}[1]{{\color{blue} #1}}		
@@ -75,9 +80,12 @@
 \usepackage{algorithmic}
 \usepackage{algorithm}
 \usepackage{subcaption}
- \renewcommand{\baselinestretch}{1.15} 
+%\usepackage{hyperref}
+\renewcommand{\baselinestretch}{1.15} 
+
 \input{newcom}
 
+\usepackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -91,19 +99,25 @@
 \thispagestyle{empty}
 
 \input{preface}
+\newpage
+\input{funding}
+\newpage
+\input{tofamily}
 \cleardoublepage
 \thispagestyle{empty}
 
-\tableofcontents
 
 %\input{notations}
 %\cleardoublepage
 %\thispagestyle{empty}
 
 \input{abstract}
+\newpage
+\input{zusammenfassung}
 \cleardoublepage
 \thispagestyle{empty}
 
+\tableofcontents
 
 %% Hauptteil mit allen Kapiteln, Arabische Numerierung
 \mainmatter
@@ -112,10 +126,20 @@
 \setlength{\parindent}{5mm}
 
 \input{chapter1.tex}
+\cleardoublepage
+\thispagestyle{empty}
 \input{chapter2.tex}
-\input{chapter3.tex}
+\cleardoublepage
+\thispagestyle{empty}
 \input{chapter4.tex}
+\cleardoublepage
+\thispagestyle{empty}
+\input{chapter3.tex}
+\cleardoublepage
+\thispagestyle{empty}
 \input{chapter5.tex}
+\cleardoublepage
+\thispagestyle{empty}
 %\input{chapter6.tex}
 \input{chapter7.tex}
 
@@ -130,18 +154,30 @@
 \lineskiplimit=0pt
 \renewcommand{\baselinestretch}{0.7}
 
-%%Geteilte Bibliography mit bibtopic-package
-\bibliographystyle{plain}   
+% list of figure list of tables
+\listoffigures
+\newpage
+\listoftables
+\newpage
 
+%%Geteilte Bibliography mit bibtopic-package
+\bibliographystyle{IEEEtranN}
 \addchap{Bibliography}
-\begin{btSect}{IEEEabrv,../bib/abbrev_strings,../bib/foreign_tech,../bib/foreign_med,../bib/rpms_med,../bib/rpms_tech,../bib/misc,../bib/eas,../bib/datasheet}
+\begin{btSect}{reference_diss}
 \btPrintCited
 \end{btSect}
 
-\begin{btSect}[plain]{../bib/my_pubs}
-\section*{Own Publications and Supervised Student Projects}
-\btPrintAll
-\end{btSect}
+%\begin{btSect}{reference_diss}
+%{IEEEabrv,../bib/abbrev_strings,../bib/foreign_tech,../bib/foreign_med,../bib/rpms_med,../bib/rpms_tech,../bib/misc,../bib/eas,../bib/datasheet}
+%\btPrintCited
+%\end{btSect}
+
+
+%\begin{btSect}[plain]{../bib/my_pubs}
+\newpage
+\section*{List Of Own Publications And Collaborations}
+%\btPrintAll
+%\end{btSect}
 
 \end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -6,15 +6,25 @@
 {\large \sffamily \textbf{Abstract}}
 \end{center}
 \noindent
-...
+Grasping is one of the most fundamental skills of manipulation. Mastering grasping is the precondition of performing complex manipulation tasks for robots. Although robotic grasping has been studied over a long period, it still remains a big gap in the capability of human grasping. Especially in an unstructured environment, the robot has to face many challenges. First, grasping is usually related to a task intention. How to select a suitable grasp configuration to satisfy a task constraint is a challenge. In addition, due to the variety of objects existing in the world, it is unfeasible and impracticable to model every individual object in prior, how to handle objects which are presented to the robots for the first time is a big challenge. Moreover, the imperfection of sensors used for grasping generates inaccurate measurements. How to deal with the uncertainty of a perceptual system for grasping is also a challenge. People may ask, why humans can master the grasping skill in their early age, by contrast, grasping is a  difficult task for robots. The reason is, grasping is an interdisciplinary task which requires to solve the perception of environment and objects, reasoning of feasible grasping strategies and robust control and monitoring the grasping process simultaneously. 
 
-\vspace{0.5cm}
-\selectlanguage{ngerman}%Babel umschalten
-\noindent
-\begin{center}
-{\large \sffamily \textbf{Zusammenfassung}}
-\end{center}
-\noindent
-...
+In this dissertation, an integrated system for grasping is proposed. The system regards grasping as a dynamic process from the state an object is perceived to the state the object is grasped. A mobile manipulator which uses the proposed system is able to perform robust grasping under various levels of prior knowledge and conditions. The prior knowledge and conditions determine what the major problem to be solved in a specific grasp scenario is. We propose to represent the difference of various grasping scenarios under a unified model which is defined by `Bayesian Network.' In this way, the grasping problem is formulated in a probabilistic fashion. The model defines a joint distribution of grasping relevant factors, while the uncertainty of these factors is quantified by probabilistic distributions. Three challenging grasping scenarios under individual conditions are formulated by the proposed model. The difference of the scenario is encoded by conditioning respective factors in the model. 
 
-\selectlanguage{american} %Babel zurücksetzen
+In the first scenario, grasping is addressed in the context of assembly tasks. The major problem is to select grasp configurations that maximize the probability of satisfying task constraint. A skill framework is proposed to generate a complete sequence for a mobile manipulator to perform an assembly, ranging from object perception, the reasoning of grasp strategy to the control of robot motions. The framework provides an intuitive way for a non-expert user to parameterize an assembly problem. Within the framework, high level skills are proposed to perform pick-and-place actions for changing the orientation of objects as well as insertion actions for assembling two objects. Successful execution of both tasks requires that objects should be grasped in an assignment preferred orientation. Differ from previous work which only considers gripper orientation,  our method is able to generate the complete robot configurations to fulfill the requirement, so that both total traveling distance and execution time of the robot are reduced. In addition, arm-platform coordination is also modeled in the framework to increase further the efficiency of executing the task. 
+
+In the second scenario, grasping of unknown objects is addressed. The major problem is to synthesize a grasp configuration which maximizes the probability of force closure. For this purpose, a new probabilistic object representation and a sensor fusion method that tailored for the representation are proposed to reconstruct the shape of objects prior to grasping. This approach is especially suitable for modeling objects with irregular forms. Differ from previous work using other representations; ours can model the reconstruction uncertainty based on the noise model of sensors. In this way, our representation has a right interpretation of the modeling uncertainty and can be used to penalize grasp points on uncertain areas. Based on the representation, a grasp synthesis method based on simulated annealing is proposed to search for a good grasp configuration. Compared with the state-of-the-art method that uses a similar representation, our method works on 3D objects and runs many times faster to achieve a result. 
+
+In the third scenario, a sensor with large  uncertainty is used to study grasping performance. The major challenge is how to perform robust grasping even perceptual uncertainty is large. Different from previous approaches which usually execute grasp in open loop, an adaptive control architecture is proposed. It allows a robot to perform grasping in a closed-loop fashion. Using the proposed architecture, the perceptual result is continuously fed back to the grasp synthesis module in which current grasp configurations are generated. Motion adaptation to the new grasp configuration is achieved by Dynamic Movement Primitives (DMP) so that during the approaching phase uncertainty of perception is reduced actively. Actuators of a mobile manipulator can be combined flexibly and used purposefully in different phase of a grasping process. 
+
+The effectiveness of the proposed integrated system is verified by a large number of real world experiments. The advantages of the methods presented in each chapter are demonstrated by comparing to state-of-the-art methods. 
+
+%\vspace{0.5cm}
+%\selectlanguage{ngerman}%Babel umschalten
+%\noindent
+%\begin{center}
+%{\large \sffamily \textbf{Zusammenfassung}}
+%\end{center}
+%\noindent
+%...
+%
+%\selectlanguage{american} %Babel zurücksetzen
