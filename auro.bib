@@ -1,0 +1,1227 @@
+@comment{x-kbibtex-personnameformatting=<%l><, %f>}
+
+@inproceedings{Izadi2011,
+	booktitle = "{Proceedings of the 24th annual ACM symposium on User interface software and technology - UIST '11}",
+	title = "{Kinect Fusion: Real-time 3D Reconstruction and Interaction Using a Moving Depth Camera}"
+}
+
+@inproceedings{chen2015,
+	author = "Chen, Dong and von Wichert, G.",
+	booktitle = "{Robotics and Automation (ICRA), 2015 IEEE International Conference on}",
+	doi = "10.1109/ICRA.2015.7139794",
+	keywords = "actuators; closed loop systems; manipulators; planning; uncertain systems; actuation uncertainties; assembly tasks; closed loop control; dynamic process; grasp planning stage; manipulation tasks; object pose; packaging tasks; perceptual uncertainties; uncertainty-aware precision grasping process; unintended finger-object contacts; Grasping; Grippers; Predictive models; Robots; Robustness; Trajectory; Uncertainty",
+	month = "May",
+	pages = "4312--4317",
+	title = "{An uncertainty-aware precision grasping process for objects with unknown dimensions}",
+	year = "2015"
+}
+
+@article{calli2015benchmarking,
+	author = "Calli, Berk and Walsman, Aaron and Singh, Arjun and Srinivasa, Siddhartha and Abbeel, Pieter and Dollar, Aaron M",
+	journal = "arXiv preprint arXiv:1502.03143",
+	title = "{Benchmarking in Manipulation Research: The YCB Object and Model Set and Benchmarking Protocols}",
+	year = "2015"
+}
+
+@inproceedings{mahler2015,
+	author = "Mahler, J. and Patil, S. and Kehoe, B. and van den Berg, J. and Ciocarlie, M. and Abbeel, P. and Goldberg, K.",
+	booktitle = "{Robotics and Automation (ICRA), 2015 IEEE International Conference on}",
+	doi = "10.1109/ICRA.2015.7139882",
+	keywords = "Gaussian processes; approximation theory; convex programming; grippers; mobile robots; probability; 2D GPIS object representations; GP-GPIS-OPT; Gaussian process implicit surfaces; RGBD point cloud observations; SCP; Willow Garage PR2 robot; force closure; grasp planning; parallel-jaw grippers; probability; sequential convex programming; Approximation methods; Force; Grippers; Sensors; Shape; Three-dimensional displays; Uncertainty",
+	month = "May",
+	pages = "4919--4926",
+	title = "{GP-GPIS-OPT: Grasp planning with shape uncertainty using Gaussian process implicit surfaces and Sequential Convex Programming}",
+	year = "2015"
+}
+
+@inproceedings{Dragiev2011,
+	author = "Dragiev, Stanimir and Toussaint, Marc and Gienger, Michael",
+	booktitle = "{Proceedings - IEEE International Conference on Robotics and Automation}",
+	doi = "10.1109/ICRA.2011.5980395",
+	isbn = "9781612843865",
+	issn = "10504729",
+	mendeley-groups = "Gaussian Process",
+	pages = "2845--2850",
+	title = "{Gaussian process implicit surfaces for shape estimation and grasping}",
+	year = "2011"
+}
+
+@inproceedings{pokorny2014c,
+	address = "Berkeley, USA",
+	author = "Pokorny, Florian T. and Bekiroglu, Yasemin and Exner, Johannes and Bj{\"o}rkman, M\aarten and Kragic, Danica",
+	booktitle = "{Workshop on Information-based Grasp and Manipulation Planning, Robotics: Science and Systems}",
+	title = "{Grasp Moduli Spaces, Gaussian Processes, and Multimodal Sensor Data}",
+	year = "2014"
+}
+
+@inproceedings{fischinger2012empty,
+	author = "Fischinger, David and Vincze, Markus",
+	booktitle = "{Intelligent Robots and Systems (IROS), 2012 IEEE/RSJ International Conference on}",
+	organization = "IEEE",
+	pages = "2051--2057",
+	title = "{Empty the basket-a shape based learning approach for grasping piles of unknown objects}",
+	year = "2012"
+}
+
+@article{Herzog2014,
+	abstract = "The ability to grasp unknown objects is an important skill for personal robots, which has been addressed by many present and past research projects, but still remains an open problem. A crucial aspect of grasping is choosing an appropriate grasp configuration, i.e. the 6d pose of the hand relative to the object and its finger configuration. Finding feasible grasp configurations for novel objects, however, is challenging because of the huge variety in shape and size of these objects. Moreover, possible configurations also depend on the specific kinematics of the robotic arm and hand in use. In this paper, we introduce a new grasp selection algorithm able to find object grasp poses based on previously demonstrated grasps. Assuming that objects with similar shapes can be grasped in a similar way, we associate to each demonstrated grasp a grasp template. The template is a local shape descriptor for a possible grasp pose and is constructed using 3d information from depth sensors. For each new object to grasp, the algorithm then finds the best grasp candidate in the library of templates. The grasp selection is also able to improve over time using the information of previous grasp attempts to adapt the ranking of the templates. We tested the algorithm on two different platforms, the Willow Garage PR2 and the Barrett WAM arm which have very different hands. Our results show that the algorithm is able to find good grasp configurations for a large set of objects from a relatively small set of demonstrations, and does indeed improve its performance over time.",
+	author = "Herzog, Alexander and Pastor, Peter and Kalakrishnan, Mrinal and Righetti, Ludovic and Bohg, Jeannette and Asfour, Tamim and Schaal, Stefan",
+	doi = "10.1007/s10514-013-9366-8",
+	file = ":home/cd/repository/dissertation/papers/RelatedWork/AutonoumasRobotGrasping/template.pdf:pdf",
+	isbn = "9781467314039",
+	issn = "09295593",
+	journal = "Autonomous Robots",
+	keywords = "Grasp synthesis; Model-free grasping; Template learning",
+	number = "1-2",
+	pages = "51--65",
+	title = "{Learning of grasp selection based on shape-templates}",
+	volume = "36",
+	year = "2014"
+}
+
+@article{Jiang2011,
+	abstract = "Given an image and an aligned depth map of an object, our goal is to estimate the full 7-dimensional gripper configuration\&\#x2014;its 3D location, 3D orientation and the gripper opening width. Recently, learning algorithms have been successfully applied to grasp novel objects\&\#x2014;ones not seen by the robot before. While these approaches use low-dimensional representations such as a \&\#x2018;grasping point\&\#x2019; or a \&\#x2018;pair of points\&\#x2019; that are perhaps easier to learn, they only partly represent the gripper configuration and hence are sub-optimal. We propose to learn a new \&\#x2018;grasping rectangle\&\#x2019; representation: an oriented rectangle in the image plane. It takes into account the location, the orientation as well as the gripper opening width. However, inference with such a representation is computationally expensive. In this work, we present a two step process in which the first step prunes the search space efficiently using certain features that are fast to compute. For the remaining few cases, the second step uses advanced features to accurately select a good grasp. In our extensive experiments, we show that our robot successfully uses our algorithm to pick up a variety of novel objects.",
+	author = "Jiang, Yun and Moseson, Stephen and Saxena, Ashutosh",
+	doi = "10.1109/ICRA.2011.5980145",
+	file = ":home/cd/repository/dissertation/papers/RelatedWork/feature-based grasp planning/jiang\_rectanglerepresentation\_fastgrasping.pdf:pdf",
+	isbn = "9781612843865",
+	issn = "10504729",
+	journal = "Proceedings - IEEE International Conference on Robotics and Automation",
+	mendeley-groups = "Feature based Grasp planning",
+	pages = "3304--3311",
+	title = "{Efficient grasping from RGBD images: Learning using a new rectangle representation}",
+	year = "2011"
+}
+
+@misc{Saxena2008,
+	abstract = "We consider the problemof grasping novel objects, specifically ones that are being seen for the first time through vision. Grasping a previously un- known object, one for which a 3-d model is not available, is a challenging problem. Further, even if given a model, one still has to decide where to grasp the object. We present a learning algorithm that neither requires, nor tries to build, a 3-d model of the object. Given two (ormore) images of an ob- ject, our algorithmattempts to identify a few points in each image corresponding to good locations at which to grasp the object. This sparse set of points is then triangulated to obtain a 3-d location atwhich to attempt a grasp. This is in contrast to standard dense stereo, which tries to triangulate every single point in an image (and often fails to return a good 3-d model). Our algorithm for identifying grasp locations from an image is trained via supervised learning, using synthetic images for the training set. We demonstrate this approach on two robotic ma- nipulation platforms. Our algorithm successfully grasps a wide variety of objects, such as plates, tape-rolls, jugs, cellphones, keys, screwdrivers, sta- plers, a thick coil ofwire, a strangely shaped power horn, and others, none of which were seen in the training set. We also apply our method to the task of unloading items from dishwashers.",
+	author = "Saxena, A. and Driemeyer, J. and Ng, A. Y.",
+	booktitle = "{The International Journal of Robotics Research}",
+	doi = "10.1177/0278364907087172",
+	file = ":home/cd/repository/dissertation/papers/RelatedWork/GraspPlanning/IJRR\_saxena\_etal\_roboticgraspingofnovelobjects.pdf:pdf",
+	isbn = "0278-3649",
+	issn = "0278-3649",
+	mendeley-groups = "Feature based Grasp planning",
+	number = "2",
+	pages = "157--173",
+	pmid = "253318100002",
+	title = "{Robotic Grasping of Novel Objects using Vision}",
+	volume = "27",
+	year = "2008"
+}
+
+@article{Ciocarlie2009,
+	acmid = "1558376",
+	address = "Thousand Oaks, CA, USA",
+	author = "Ciocarlie, Matei T. and Allen, Peter K.",
+	doi = "10.1177/0278364909105606",
+	issn = "0278-3649",
+	issue_date = "July 2009",
+	journal = "Int. J. Rob. Res.",
+	keywords = "dexterous robotic hands; hand prosthetics.; interactive grasping",
+	month = jul,
+	number = "7",
+	numpages = "17",
+	pages = "851--867",
+	publisher = "Sage Publications, Inc.",
+	title = "{Hand Posture Subspaces for Dexterous Robotic Grasping}",
+	volume = "28",
+	year = "2009"
+}
+
+@article{Ferrari1992,
+	abstract = "The authors address the problem of planning optimal grasps. Two general optimality criteria that consider the total finger force and the maximum finger force are introduced and discussed. Their formalization using various metrics on a space of generalized forces is detailed. The geometric interpretation of the two criteria leads to an efficient planning algorithm. An example of its use in a robotic environment equipped with two-jaw and three-jaw is described",
+	author = "Ferrari, C. and Canny, J.",
+	doi = "10.1109/ROBOT.1992.219918",
+	isbn = "0-8186-2720-4",
+	journal = "Proceedings 1992 IEEE International Conference on Robotics and Automation",
+	mendeley-groups = "other grasp planning",
+	title = "{Planning optimal grasps}",
+	year = "1992"
+}
+
+@article{Zuliani2008,
+	abstract = "Page 1. Draft RANSAC for Dummies With examples using the RANSAC toolbox for Matlab and more. . . Marco Zuliani marco.zuliani@gmail.com November 25, 2008 Page 2. Draft To all the free thinkers, who freely share their ideas. 2 Page 3. Draft ...",
+	author = "Zuliani, M",
+	journal = "Citeseer",
+	title = "{RANSAC for Dummies}",
+	year = "2008"
+}
+
+@inproceedings{Reiser2009,
+	abstract = "This paper introduces Care-O-bot<sup>®</sup> 3, a highly integrated and compact service robot with manipulation, navigation and vision capabilities. In particular, Care-O-bot<sup>®</sup> 3 combines the best of available technology including a 7 DOF light-weight arm, an omnidirectional platform and many high-end sensors along with a sustainable, end user oriented design concept enabling many interaction possibilities.",
+	author = "Reiser, Ulrich and Connette, Christian and Fischer, Jan and Kubacki, Jens and Bubeck, Alexander and Weisshardt, Florian and Jacobs, Theo and Parlitz, Christopher and Hagele, Martin and Verl, Alexander",
+	booktitle = "{2009 IEEE/RSJ International Conference on Intelligent Robots and Systems, IROS 2009}",
+	doi = "10.1109/IROS.2009.5354526",
+	isbn = "9781424438044",
+	pages = "1992--1998",
+	title = "{Care-O-bot® 3 - Creating a product vision for service robot applications by integrating design and technology}",
+	year = "2009"
+}
+
+@article{lenz2015deep,
+	author = "Lenz, Ian and Lee, Honglak and Saxena, Ashutosh",
+	journal = "The International Journal of Robotics Research",
+	number = "4-5",
+	pages = "705--724",
+	publisher = "SAGE Publications",
+	title = "{Deep learning for detecting robotic grasps}",
+	volume = "34",
+	year = "2015"
+}
+
+@inproceedings{curless1996volumetric,
+	author = "Curless, Brian and Levoy, Marc",
+	booktitle = "{Proceedings of the 23rd annual conference on Computer graphics and interactive techniques}",
+	organization = "ACM",
+	pages = "303--312",
+	title = "{A volumetric method for building complex models from range images}",
+	year = "1996"
+}
+
+@inproceedings{Rusu_ICRA2011_PCL,
+	address = "Shanghai, China",
+	author = "Rusu, Radu Bogdan and Cousins, Steve",
+	booktitle = "{IEEE International Conference on Robotics and Automation (ICRA)}",
+	month = "May 9-13",
+	title = "{3D is here: Point Cloud Library (PCL)}",
+	year = "2011"
+}
+
+@inproceedings{borst1999fast,
+	author = "Borst, Ch and Fischer, Max and Hirzinger, Gerd",
+	booktitle = "{Robotics and Automation, 1999. Proceedings. 1999 IEEE International Conference on}",
+	organization = "IEEE",
+	pages = "1890--1896",
+	title = "{A fast and robust grasp planner for arbitrary 3D objects}",
+	volume = "3",
+	year = "1999"
+}
+
+@inproceedings{xue2009automatic,
+	author = "Xue, Zhixing and Kasper, Alexander and Zoellner, J Marius and Dillmann, Ruediger",
+	booktitle = "{Advanced Robotics, 2009. ICAR 2009. International Conference on}",
+	organization = "IEEE",
+	pages = "1--6",
+	title = "{An automatic grasp planning system for service robots}",
+	year = "2009"
+}
+
+@inproceedings{vincent2016,
+	author = "Dietrich, Vincent and Chen, Dong and Wurm, Kai and v. Wichert, Georg and Ennen, Philipp",
+	booktitle = "{IEEE International Conference on Robotics and Automation (ICRA)}",
+	organization = "IEEE",
+	title = "{Probabilistic Multi-Sensor Fusion based on Signed Distance Functions}",
+	year = "2016"
+}
+
+@inproceedings{5354833,
+	author = "Berenson, D. and Srinivasa, S.S. and Kuffner, J.J.",
+	booktitle = "{Intelligent Robots and Systems, 2009. IROS 2009. IEEE/RSJ International Conference on}",
+	doi = "10.1109/IROS.2009.5354833",
+	keywords = "collision avoidance; manipulators; mobile robots; uncertain systems; 7-DOF WAM arm planning paths; IKBiRRT planner; cluttered kitchen environment; collision-free; manipulation planning; object placement task; path generation; pose uncertainty; robot C-space; robotic manipulator; task space regions; task specifications; Computational geometry; Intelligent robots; Manipulators; Meeting planning; Orbital robotics; Path planning; Robot sensing systems; Sampling methods; USA Councils; Uncertainty",
+	owner = "cd",
+	pages = "1419--1425",
+	timestamp = "2013.04.22",
+	title = "{Addressing pose uncertainty in manipulation planning using Task Space Regions}",
+	year = "2009"
+}
+
+@inproceedings{Bohg2011,
+	author = "Bohg, J. and Johnson-Roberson, M. and Leon, B. and Felip, J. and Gratal, X. and Bergstrom, N. and Kragic, D. and Morales, A.",
+	booktitle = "{Robotics and Automation (ICRA), 2011 IEEE International Conference on}",
+	doi = "10.1109/ICRA.2011.5980354",
+	issn = "1050-4729",
+	keywords = "mesh generation; robots; collision-free movements; gap robotic grasping; incomplete observation; manipulation planning; mesh reconstruction; object shape prediction; Approximation methods; Grasping; Image reconstruction; Planning; Robots; Shape; Surface reconstruction",
+	month = "May",
+	pages = "686--693",
+	title = "{Mind the gap - robotic grasping under incomplete observation}",
+	year = "2011"
+}
+
+@article{bohg_datadrivengrasp,
+	author = "Bohg, J. and Morales, A. and Asfour, T. and Kragic, D.",
+	doi = "10.1109/TRO.2013.2289018",
+	issn = "1552-3098",
+	journal = "Robotics, IEEE Transactions on",
+	keywords = "Databases; Feature extraction; Grasping; Measurement; Robot sensing systems; Grasp planning; grasp synthesis; object grasping and manipulation; object recognition and classification; visual perception; visual representations",
+	month = "April",
+	number = "2",
+	pages = "289--309",
+	title = "{Data-Driven Grasp Synthesis - A Survey}",
+	volume = "30",
+	year = "2014"
+}
+
+@article{elastic_stripe,
+	author = "Brock, Oliver and Khatib, Oussama",
+	journal = "The International Journal of Robotics Research",
+	owner = "cd",
+	pages = "1031--1052",
+	timestamp = "2013.04.23",
+	title = "{Elastic strips: A framework for motion generation in human environments}",
+	volume = "21",
+	year = "2002"
+}
+
+@article{6213233,
+	author = "Chitta, S. and Jones, E.G. and Ciocarlie, M. and Hsiao, K.",
+	doi = "10.1109/MRA.2012.2191995",
+	journal = "Robotics Automation Magazine, IEEE",
+	keywords = "end effectors; path planning; robot vision; tactile sensors; cluttered workspaces; mobile pick-and-place; motion planning; noisy sensor data; proprioceptive sensor data; reactive control; reactive grasping; reactive monitoring; robotic operation; tactile sensor data; three-dimensional visual processing; two-arm mobile manipulation system; two-dimensional visual processing; unknown objects; unstructured human environments; Manipulator dynamics; Mobile communication; Three dimensional displays; Two dimensional displays; VIsual communication",
+	number = "2",
+	owner = "cd",
+	pages = "58--71",
+	timestamp = "2013.04.22",
+	title = "{Mobile Manipulation in Unstructured Environments: Perception, Planning, and Execution}",
+	volume = "19",
+	year = "2012"
+}
+
+@inproceedings{ciocarlie2007,
+	author = "Ciocarlie, Matei and Goldfeder, Corey and Allen, Peter",
+	booktitle = "{Intelligent Robots and Systems, 2007. IROS 2007. IEEE/RSJ International Conference on}",
+	owner = "cd",
+	pages = "3270--3275",
+	timestamp = "2013.12.27",
+	title = "{Dimensionality reduction for hand-independent dexterous robotic grasping}",
+	year = "2007"
+}
+
+@inproceedings{grasp_pipeline_ros,
+	author = "Ciocarlie, Matei and Hsiao, Kaijen and Jones, E. Gil and Chitta, Sachin and Rusu, Radu Bogdan and Sucan, Ioan Alexandru",
+	booktitle = "{Intl. Symposium on Experimental Robotics (ISER)}",
+	keywords = "grasping; manipulation; perception",
+	owner = "cd",
+	timestamp = "2013.04.25",
+	title = "{Towards Reliable Grasping and Manipulation in Household Environments}",
+	year = "2010"
+}
+
+@inproceedings{Deimel2013,
+	__markedentry = "[cd:6]",
+	author = "Deimel, Raphael and Brock, Oliver",
+	booktitle = "{Proceedings of the IEEE International Conference on Robotics and Automation (ICRA)}",
+	owner = "cd",
+	pages = "01--07",
+	projectname = "Compliant Hand",
+	timestamp = "2013.12.06",
+	title = "{A Compliant Hand Based on a Novel Pneumatic Actuator}",
+	year = "2013"
+}
+
+@inproceedings{dogar2011,
+	address = "Los Angeles, CA, USA",
+	author = "Dogar, Mehmet and Srinivasa, Siddhartha",
+	booktitle = "{Proceedings of Robotics: Science and Systems}",
+	month = "June",
+	title = "{A Framework for Push-Grasping in Clutter}",
+	year = "2011"
+}
+
+@conference{dogar2012,
+	author = "Dogar, Mehmet R and Hsaio, Kaijen and Ciocarlie, Matei and Srinivasa, Siddhartha",
+	booktitle = "{Proceedings of Robotics: Science and Systems}",
+	owner = "cd",
+	timestamp = "2013.12.09",
+	title = "{Physics-based grasp planning through clutter}",
+	year = "2012"
+}
+
+@inproceedings{3dmapping,
+	author = "Dryanovski, Ivan and Morris, William and Xiao, Jizhong",
+	booktitle = "{Intelligent Robots and Systems (IROS), 2010 IEEE/RSJ International Conference on}",
+	owner = "cd",
+	pages = "1553--1559",
+	timestamp = "2013.04.26",
+	title = "{Multi-volume occupancy grids: An efficient probabilistic 3D mapping model for micro aerial vehicles}",
+	year = "2010"
+}
+
+@inproceedings{3dmapping2,
+	author = "Fournier, Jonathan and Ricard, Benoit and Laurendeau, Denis",
+	booktitle = "{Computer and Robot Vision, 2007. CRV'07. Fourth Canadian Conference on}",
+	owner = "cd",
+	pages = "403--410",
+	timestamp = "2013.04.26",
+	title = "{Mapping and exploration of complex environments using persistent 3D model}",
+	year = "2007"
+}
+
+@inproceedings{careobot,
+	author = "Graf, Birgit and Reiser, Ulrich and Hagele, M and Mauz, Kathrin and Klein, Peter",
+	booktitle = "{Advanced Robotics and its Social Impacts (ARSO), 2009 IEEE Workshop on}",
+	owner = "cd",
+	pages = "139--144",
+	timestamp = "2013.04.23",
+	title = "{Robotic home assistant Care-O-bot{\textregistered} 3-product vision and innovation platform}",
+	year = "2009"
+}
+
+@article{octomap,
+	author = "Hornung, Armin and Wurm, KaiM. and Bennewitz, Maren and Stachniss, Cyrill and Burgard, Wolfram",
+	doi = "10.1007/s10514-012-9321-0",
+	journal = "Autonomous Robots",
+	number = "3",
+	owner = "cd",
+	pages = "189--206",
+	timestamp = "2013",
+	title = "{{OctoMap}: An Efficient Probabilistic {3D} Mapping Framework Based on Octrees}",
+	url = "http://octomap.github.com",
+	volume = "34",
+	year = "2013"
+}
+
+@inproceedings{Hsiao2010,
+	author = "Hsiao, K. and Chitta, S. and Ciocarlie, M. and Jones, E.G.",
+	booktitle = "{Intelligent Robots and Systems (IROS), 2010 IEEE/RSJ International Conference on}",
+	doi = "10.1109/IROS.2010.5649494",
+	keywords = "calibration; grippers; mobile robots; tactile sensors; 3D sensor data; calibration errors; contact reactive grasping; fingertip sensors; grasp selection; partial shape information; robotic grasping; sensor noise; tactile feedback; unstructured environments",
+	owner = "cd",
+	timestamp = "2013.04.22",
+	title = "{Contact-reactive grasping of objects with partial shape information}",
+	year = "2010"
+}
+
+@conference{Hsiao09Icra,
+	author = "Hsiao, K. and Nangeroni, Paul and Huber, M. and Saxena, A. and Ng, A.Y.",
+	booktitle = "{Robotics and Automation, 2009. ICRA '09. IEEE International Conference on}",
+	doi = "10.1109/ROBOT.2009.5152849",
+	keywords = "Computational geometry; Computer science; Fingers; Geometrical optics; Grasping; Optical sensors; Robot sensing systems; Sensor systems; Surface texture; Tactile sensors",
+	owner = "cd",
+	pages = "2098--2105",
+	timestamp = "2013.12.06",
+	title = "{Reactive grasping using optical proximity sensors}",
+	year = "2009"
+}
+
+@article{ELE,
+	author = "Jain, Advait and Kemp, Charles C",
+	journal = "Autonomous Robots",
+	number = "1",
+	owner = "cd",
+	pages = "45--64",
+	timestamp = "2013.04.25",
+	title = "{EL-E: an assistive mobile manipulator that autonomously fetches objects from flat surfaces}",
+	volume = "28",
+	year = "2010"
+}
+
+@inproceedings{jiang2012seashell,
+	author = "Jiang, Liang-Ting and Smith, Joshua R",
+	booktitle = "{Robotics and Automation (ICRA), 2012 IEEE International Conference on}",
+	organization = "IEEE",
+	pages = "2851--2858",
+	title = "{Seashell effect pretouch sensing for robotic grasping}",
+	year = "2012"
+}
+
+@misc{armnav,
+	author = "Jones, E. Gil",
+	howpublished = "\url{http://www.ros.org/wiki/arm\_navigation}",
+	owner = "cd",
+	timestamp = "2013.04.22",
+	title = "{ROS Arm navigation}",
+	year = "2013"
+}
+
+@inproceedings{nao,
+	author = "{Judith M{\"u}ller}, Udo Frese Thomas R{\"o}fer",
+	booktitle = "{Proceedings of the IEEE-RAS International Conference on Humanoid Robots (HUMANOIDS 2012), Osaka, Japan}",
+	owner = "cd",
+	timestamp = "2013.04.22",
+	title = "{Grab a Mug - Object Detection and Grasp Motion Planning with the Nao Robot}",
+	year = "2012"
+}
+
+@inproceedings{kehoe2012,
+	author = "Kehoe, Ben and Berenson, Dmitry and Goldberg, Ken",
+	booktitle = "{Robotics and Automation (ICRA), 2012 IEEE International Conference on}",
+	organization = "IEEE",
+	owner = "cd",
+	pages = "576--583",
+	timestamp = "2013.12.30",
+	title = "{Toward cloud-based grasping with uncertainty in shape: Estimating lower bounds on achieving force closure with zero-slip push grasps}",
+	year = "2012"
+}
+
+@article{robotic_assistant,
+	author = "Khatib, Oussama",
+	doi = "10.1016/S0921-8890(98)00067-0",
+	journal = "Robotics and Autonomous Systems",
+	keywords = "Coordinated mobility and manipulation; Multiple robot cooperation; Human-robot interaction; Service robotics",
+	number = "2",
+	owner = "cd",
+	pages = "175--183",
+	timestamp = "2013.04.22",
+	title = "{Mobile manipulation: The robotic assistant}",
+	volume = "26",
+	year = "1999"
+}
+
+@inproceedings{570849,
+	author = "Khatib, O. and Yokoi, K. and Chang, K. and Ruspini, D. and Holmberg, R. and Casal, A.",
+	booktitle = "{Intelligent Robots and Systems '96, IROS 96, Proceedings of the 1996 IEEE/RSJ International Conference on}",
+	doi = "10.1109/IROS.1996.570849",
+	keywords = "cooperative systems; decentralised control; force control; manipulators; mobile robots; Stanford University; augmented object model; decentralized control; decentralized cooperation; dextrous dynamic coordination; holonomic mobile manipulation platforms; macro/mini structures; multi-arm system; multiple mobile manipulator; operational space formulation; service environments; space; task-oriented control; underwater construction; vehicle/arm coordination; virtual linkage model; Bandwidth; Control system analysis; Couplings; Force control; Manipulator dynamics; Mobile robots; Orbital robotics; Robot kinematics; Robot motion; Vehicle dynamics",
+	owner = "cd",
+	pages = "546--553",
+	timestamp = "2013.04.25",
+	title = "{Vehicle/arm coordination and multiple mobile manipulator decentralized cooperation}",
+	volume = "2",
+	year = "1996"
+}
+
+@inproceedings{5509669,
+	author = "Knepper, R.A. and Srinivasa, S.S. and Mason, Matthew T.",
+	booktitle = "{Robotics and Automation (ICRA), 2010 IEEE International Conference on}",
+	doi = "10.1109/ROBOT.2010.5509669",
+	keywords = "mobile robots; motion control; path planning; position control; Barrett hand; Segway mobile platform; WAM arm; collision free motions; global planner; hierarchical planning architectures; indoor environments; manipulation components; mobile manipulation; planning delays; robot kinematics; rough guidance; Delay effects; Indoor environments; Motion planning; Navigation; Robot kinematics; Robotics and automation; Termination of employment; Testing; Trajectory; USA Councils",
+	owner = "cd",
+	pages = "1985--1990",
+	timestamp = "2013.04.22",
+	title = "{Hierarchical planning architectures for mobile manipulation tasks in indoor environments}",
+	year = "2010"
+}
+
+@conference{Koyama2013,
+	author = "Koyama, Keisuke and Hasegawa, Hiroaki and Suzuki, Yosuke and Ming, Aiguo and Shimojo, Makoto",
+	booktitle = "{Intelligent Robots and Systems, 2013. IROS 2013. IEEE/RSJ International Conference on}",
+	owner = "cd",
+	timestamp = "2013.12.06",
+	title = "{Pre-shaping for Various Objects by the Robot Hand Equipped with Resistor Network Structure Proximity Sensors}",
+	year = "2013"
+}
+
+@inproceedings{thilo,
+	author = "Kuehnle, Jens and Verl, Alexander and Xue, Zhixing and Ruehl, Steffen and Zoellner, J Marius and Dillmann, Ruediger and Grundmann, Thilo and Eidenberger, Robert and Zoellner, Raoul D",
+	booktitle = "{Advanced Robotics, 2009. ICAR 2009. International Conference on}",
+	owner = "cd",
+	pages = "1--6",
+	timestamp = "2013.04.26",
+	title = "{6d object localization and obstacle detection for collision-free manipulation with a mobile service robot}",
+	year = "2009"
+}
+
+@article{Miller2004,
+	author = "Miller, A.T. and Allen, P.K.",
+	doi = "10.1109/MRA.2004.1371616",
+	issn = "1070-9932",
+	journal = "Robotics Automation Magazine, IEEE",
+	keywords = "collision avoidance; control system CAD; force control; friction; grippers; interactive systems; manipulator dynamics; optimisation; user interfaces; collision detection; contact determination system; dynamic simulation system; force-closure grasps; grasp analysis; pick-and-place type task; robotic grasping; versatile simulator; visualization method",
+	month = "Dec",
+	number = "4",
+	pages = "110--122",
+	title = "{Graspit! A versatile simulator for robotic grasping}",
+	volume = "11",
+	year = "2004"
+}
+
+@inproceedings{bonn2013,
+	author = "Nieuwenhuisen, Matthias and Droeschel, David and Holz, Dirk and St{\"u}ckler, J{\"o}rg and Berner, Alexander and Li, Jun and Klein, Reinhard and Behnke, Sven",
+	booktitle = "{Robotics and Automation (ICRA), 2013 IEEE International Conference on}",
+	owner = "cd",
+	timestamp = "2013.04.22",
+	title = "{Mobile Bin Picking with an Anthropomorphic Service Robot}",
+	year = "2013"
+}
+
+@inproceedings{tc,
+	author = "Omrcen, Damir and Lajpah, Leon and Nemec, Bojan and Babi, Jan",
+	booktitle = "{RAAD 03 12th International Workshop on Robotics in Alpe-Adria-Danube Region}",
+	owner = "cd",
+	timestamp = "2013.04.22",
+	title = "{Torque-Velocity Control of Mobile Manipulator in Unstructured Environment}",
+	year = "2003"
+}
+
+@inproceedings{opendoor,
+	author = "Ott, Christian and B{\"a}uml, Berthold and Borst, Christoph and Hirzinger, Gerd",
+	booktitle = "{IEEE/RSJ International Conference on Intelligent Robots and Systems, Workshop on mobile manipulators: Basic techniques, new trends \& applications}",
+	owner = "cd",
+	timestamp = "2013.04.22",
+	title = "{Employing cartesian impedance control for the opening of a door: A case study in mobile manipulation}",
+	year = "2005"
+}
+
+@inproceedings{pastor2011online,
+	author = "Pastor, Peter and Righetti, Ludovic and Kalakrishnan, Mrinal and Schaal, Stefan",
+	booktitle = "{Intelligent Robots and Systems (IROS), 2011 IEEE/RSJ International Conference on}",
+	organization = "IEEE",
+	pages = "365--371",
+	title = "{Online movement adaptation based on previous sensor experiences}",
+	year = "2011"
+}
+
+@book{puterman2009markov,
+	author = "Puterman, Martin L",
+	publisher = "John Wiley \& Sons",
+	title = "{Markov decision processes: discrete stochastic dynamic programming}",
+	volume = "414",
+	year = "2009"
+}
+
+@inproceedings{Roa2012,
+	author = "Roa, M.A. and Argus, M.J. and Leidner, D. and Borst, C. and Hirzinger, G.",
+	booktitle = "{Robotics and Automation (ICRA), 2012 IEEE International Conference on}",
+	doi = "10.1109/ICRA.2012.6225068",
+	issn = "1050-4729",
+	keywords = "collision avoidance; manipulator kinematics; anthropomorphic robot hands; computing power; human grasping actions; kinematic structure; object surface; potential obstacles; power grasp planning; Approximation methods; Databases; Grasping; Humans; Planning; Robots; Thumb",
+	month = "May",
+	pages = "563--569",
+	title = "{Power grasp planning for anthropomorphic robot hands}",
+	year = "2012"
+}
+
+@article{roa2009,
+	author = "Roa, M{\'a}ximo A and Su{\'a}rez, Ra{\'u}l",
+	journal = "Robotics, IEEE Transactions on",
+	owner = "cd",
+	pages = "839--850",
+	timestamp = "2013.12.30",
+	title = "{Computation of independent contact regions for grasping 3-d objects}",
+	volume = "25",
+	year = "2009"
+}
+
+@article{trajopt,
+	author = "Schulman, John and Lee, Alex and Awwal, Ibrahim and Bradlow, Henry and Abbeel, Pieter",
+	journal = "Submitted. Draft at https://sites. google. com/site/rss2013trajopt",
+	owner = "cd",
+	timestamp = "2013.04.23",
+	title = "{Finding Locally Optimal, Collision-Free Trajectories with Sequential Convex Optimization}",
+	year = "2013"
+}
+
+@misc{sdh,
+	author = "SCHUNK",
+	howpublished = "\url{http://mobile.schunk-microsite.com/fileadmin/user\_upload/pdf/SCHUNK\_Technische\_Daten\_SDH.pdf}",
+	owner = "cd",
+	timestamp = "2013.04.29",
+	title = "{Servoelektrische 3-Finger-Greifhand SDH}",
+	year = "2013"
+}
+
+@inproceedings{Song2011,
+	author = "Song, Dan and Ek, C.H. and Huebner, K. and Kragic, D.",
+	booktitle = "{Robotics and Automation (ICRA), 2011 IEEE International Conference on}",
+	doi = "10.1109/ICRA.2011.5979666",
+	issn = "1050-4729",
+	keywords = "Bayes methods; Gaussian processes; dexterous manipulators; learning (artificial intelligence); probability; task analysis; uncertainty handling; Bayesian network; Gaussian mixture model; discretize continuous data; latent variable models; nonlinear dimensionality reduction; probabilistic model; robot grasping; sparse Gaussian process; structure learning; task classification; task prediction; uncertainty handling; Data models; Feature extraction; Grasping; Humans; Principal component analysis; Robot sensing systems",
+	month = "May",
+	pages = "1944--1950",
+	title = "{Multivariate discretization for Bayesian Network structure learning in robot grasping}",
+	year = "2011"
+}
+
+@inproceedings{busboy,
+	author = "Srinivasa, Siddhartha and Ferguson, Dave and Weghe, Mike Vande and Diankov, Rosen and Berenson, Dmitry and Helfrich, Casey and Strasdat, Hauke",
+	booktitle = "{International conference on intelligent autonomous systems}",
+	owner = "cd",
+	pages = "651--656",
+	timestamp = "2013.04.25",
+	title = "{The robotic busboy: Steps towards developing a mobile robotic home assistant}",
+	year = "2008"
+}
+
+@inproceedings{narf,
+	author = "Steder, Bastian and Rusu, Radu Bogdan and Konolige, Kurt and Burgard, Wolfram",
+	booktitle = "{Workshop on Defining and Solving Realistic Perception Problems in Personal Robotics at the IEEE/RSJ Int. Conf. on Intelligent Robots and Systems (IROS)}",
+	owner = "cd",
+	timestamp = "2013.04.26",
+	title = "{NARF: 3D range image features for object recognition}",
+	volume = "44",
+	year = "2010"
+}
+
+@inproceedings{stulp2009action,
+	author = "Stulp, Freek and Fedrizzi, Andreas and Beetz, Michael",
+	booktitle = "{Intelligent Robots and Systems, 2009. IROS 2009. IEEE/RSJ International Conference on}",
+	organization = "IEEE",
+	pages = "3115--3120",
+	title = "{Action-related place-based mobile manipulation}",
+	year = "2009"
+}
+
+@inproceedings{5979644,
+	author = "Stulp, F. and Theodorou, E. and Buchli, J. and Schaal, S.",
+	booktitle = "{Robotics and Automation (ICRA), 2011 IEEE International Conference on}",
+	doi = "10.1109/ICRA.2011.5979644",
+	keywords = "Boolean algebra; end effectors; learning (artificial intelligence); mobile robots; path planning; pose estimation; probability; state estimation; cost function; dynamic movement primitives; grasp planning; manipulation strategies; motion planning; object position; path integrals; probabilistic model free reinforcement learning algorithm policy improvement; robot learning; robust motion primitives; state estimation uncertainty distribution; Grasping; Planning; Robots; Robustness; State estimation; Trajectory; Uncertainty",
+	owner = "cd",
+	pages = "5703--5708",
+	timestamp = "2013.04.22",
+	title = "{Learning to grasp under uncertainty}",
+	year = "2011"
+}
+
+@article{ompl,
+	author = "Sucan, Ioan Alexandru and Moll, Mark and Kavraki, Lydia E.",
+	doi = "10.1109/MRA.2012.2205651",
+	journal = "IEEE Robot. Automat. Mag.",
+	number = "4",
+	owner = "cd",
+	pages = "72--82",
+	timestamp = "2013.04.22",
+	title = "{The Open Motion Planning Library}",
+	volume = "19",
+	year = "2012"
+}
+
+@inproceedings{Vahrenkamp2013,
+	author = "Vahrenkamp, N. and Asfour, T. and Dillmann, R.",
+	booktitle = "{IEEE International Conference on Robotics and Automation (ICRA)}",
+	title = "{Robot Placement based on Reachability Inversion}",
+	year = "2013"
+}
+
+@inproceedings{5509377,
+	author = "Vahrenkamp, N. and Do, M. and Asfour, T. and Dillmann, R.",
+	booktitle = "{Robotics and Automation (ICRA), 2010 IEEE International Conference on}",
+	doi = "10.1109/ROBOT.2010.5509377",
+	keywords = "dexterous manipulators; humanoid robots; path planning; position control; random processes; robot kinematics; torque control; RRT-based algorithm; bimanual grasp; collision-free dual arm grasping motion; collision-free single arm grasping motion; collision-free trajectory; dual arm planner; grasp-RRT planner; grasping position; humanoid robot ARMAR-III; inverse kinematics; motion planning; net torque; object grasping; online grasp quality measurement module; reachable grasping pose; Computational modeling; Databases; End effectors; Grasping; Humanoid robots; Kinematics; Motion analysis; Motion planning; Orbital robotics; Process planning",
+	owner = "cd",
+	pages = "2883--2888",
+	timestamp = "2013.04.22",
+	title = "{Integrated Grasp and motion planning}",
+	year = "2010"
+}
+
+@inproceedings{4399105,
+	author = "Zacharias, Franziska and Borst, Christoph and Hirzinger, Gerd",
+	booktitle = "{Intelligent Robots and Systems, 2007. IROS 2007. IEEE/RSJ International Conference on}",
+	doi = "10.1109/IROS.2007.4399105",
+	keywords = "manipulators; path planning; capability map; directional structures; grasp planners; humanoid torso; manipulator; mobile manipulator; path planners; robot arm; robot capabilities; robot workspace structure; task planners; Design optimization; Humanoid robots; Humans; Intelligent robots; Kinematics; Layout; Manipulator dynamics; Robotic assembly; USA Councils; Visualization",
+	organization = "IEEE",
+	owner = "cd",
+	pages = "3229--3236",
+	timestamp = "2013.04.22",
+	title = "{Capturing robot workspace structure: representing robot capabilities}",
+	year = "2007"
+}
+
+@inproceedings{Brook2011,
+	author = "Brook, P. and Ciocarlie, M. and Hsiao, K.",
+	booktitle = "{Robotics and Automation (ICRA), 2011 IEEE International Conference on}",
+	doi = "10.1109/ICRA.2011.5980490",
+	issn = "1050-4729",
+	keywords = "mobile robots; multi-robot systems; object recognition; path planning; solid modelling; 3D model; PR2 robot; collaborative grasp planning; grasp execution error; human environment; multiple object representation; object recognition; object representation; robot calibration; semantic interpretation; sensor data; Clustering algorithms; Computational modeling; Grasping; Object recognition; Planning; Robot sensing systems",
+	month = "May",
+	pages = "2851--2858",
+	title = "{Collaborative grasp planning with multiple object representations}",
+	year = "2011"
+}
+
+@inproceedings{Dang2012,
+	author = "Dang, Hao and Allen, P.K.",
+	booktitle = "{Intelligent Robots and Systems (IROS), 2012 IEEE/RSJ International Conference on}",
+	doi = "10.1109/IROS.2012.6385563",
+	issn = "2153-0858",
+	keywords = "dexterous manipulators; geometry; grippers; manipulator kinematics; path planning; example based planning framework; grasp planner; hand kinematic data; local geometry; object manipulation task; partial object geometry; physical robot; predefined semantic grasps; robotic grasp planning; semantic affordance map; semantic constraints; semantic grasping; tactile contacts; task-related constraints; Geometry; Grasping; Kinematics; Pipelines; Planning; Robots; Semantics",
+	month = "Oct",
+	pages = "1311--1317",
+	title = "{Semantic grasping: Planning robotic grasps functionally suitable for an object manipulation task}",
+	year = "2012"
+}
+
+@inproceedings{dietrich2011,
+	author = "Dietrich, A. and Wimbock, T. and Albu-Schaffer, A.",
+	booktitle = "{Intelligent Robots and Systems (IROS), 2011 IEEE/RSJ International Conference on}",
+	doi = "10.1109/IROS.2011.6094445",
+	issn = "2153-0858",
+	keywords = "collision avoidance; dexterous manipulators; flexible manipulators; humanoid robots; service robots; torque control; wheels; DLR humanoid Justin; collision avoidance; dexterous behavior; dynamic whole-body mobile manipulation; flexible behavior; impedance control laws; low-dimensional task space interface; natural redundancy resolution; service robotics; torque controlled humanoid robot; wheeled platform; Collision avoidance; Damping; Impedance; Joints; Mobile communication; Robots; Torque",
+	month = "Sept",
+	pages = "3199--3206",
+	title = "{Dynamic whole-body mobile manipulation with a torque controlled humanoid robot via impedance control laws}",
+	year = "2011"
+}
+
+@inproceedings{Borst2009,
+	author = "Borst, C. and Wimbock, Thomas and Schmidt, F. and Fuchs, Matthias and Brunner, Bernhard and Zacharias, Franziska and Giordano, P.R. and Konietschke, Rainer and Sepp, Wolfgang and Fuchs, Stefan and Rink, Christian and Albu-Schaffer, Alin and Hirzinger, G.",
+	booktitle = "{Robotics and Automation, 2009. ICRA '09. IEEE International Conference on}",
+	title = "{Rollin' Justin - Mobile platform with variable base}"
+}
+
+@inproceedings{Asfour2006,
+	booktitle = "{Humanoid Robots, 2006 6th IEEE-RAS International Conference on}",
+	title = "{ARMAR-III: An Integrated Humanoid Platform for Sensory-Motor Control}"
+}
+
+@inproceedings{Bohren2011,
+	booktitle = "{Robotics and Automation (ICRA), 2011 IEEE International Conference on}",
+	doi = "10.1109/ICRA.2011.5980058",
+	title = "{Towards autonomous robotic butlers: Lessons learned with the PR2}"
+}
+
+@article{ploger2008,
+	author = "Pl{\"o}ger, Paul-Gerhard",
+	journal = "KI Zeitschrift",
+	number = "08",
+	pages = "29--30",
+	title = "{The DESIRE Service Robotics Initiative.}",
+	volume = "3",
+	year = "2008"
+}
+
+@incollection{reiser2013care,
+	booktitle = "{Your virtual butler}",
+	title = "{Care-O-bot{\textregistered} 3--Vision of a robot butler}"
+}
+
+@inproceedings{bischoff2011,
+	author = "Bischoff, R. and Huggenberger, U. and Prassler, E.",
+	booktitle = "{Robotics and Automation (ICRA), 2011 IEEE International Conference on}",
+	doi = "10.1109/ICRA.2011.5980575",
+	issn = "1050-4729",
+	keywords = "cognitive systems; industrial manipulators; mobile robots; KUKA youBot; cognitive factory; mobile manipulation platform; omnidirectional mobile manipulator",
+	month = "May",
+	pages = "1--4",
+	title = "{KUKA youBot - a mobile manipulator for research and education}",
+	year = "2011"
+}
+
+@article{srinivasa2010herb,
+	author = "Srinivasa, Siddhartha S and Ferguson, Dave and Helfrich, Casey J and Berenson, Dmitry and Collet, Alvaro and Diankov, Rosen and Gallagher, Garratt and Hollinger, Geoffrey and Kuffner, James and Weghe, Michael Vande",
+	journal = "Autonomous Robots",
+	number = "1",
+	pages = "5--20",
+	publisher = "Springer",
+	title = "{HERB: a home exploring robotic butler}",
+	volume = "28",
+	year = "2010"
+}
+
+@inproceedings{stuckler2009integrating,
+	author = "Stuckler, J and Behnke, Sven",
+	booktitle = "{Humanoid Robots, 2009. Humanoids 2009. 9th IEEE-RAS International Conference on}",
+	organization = "IEEE",
+	pages = "506--513",
+	title = "{Integrating indoor mobility, object manipulation, and intuitive interaction for domestic service tasks}",
+	year = "2009"
+}
+
+@article{puterman1990markov,
+	author = "Puterman, Martin L",
+	journal = "Handbooks in operations research and management science",
+	pages = "331--434",
+	publisher = "Elsevier",
+	title = "{Markov decision processes}",
+	volume = "2",
+	year = "1990"
+}
+
+@incollection{schaal2005learning,
+	author = "Schaal, Stefan and Peters, Jan and Nakanishi, Jun and Ijspeert, Auke",
+	booktitle = "{Robotics Research}",
+	pages = "561--572",
+	publisher = "Springer",
+	title = "{Learning movement primitives}",
+	year = "2005"
+}
+
+@inproceedings{nakanishi2005comparative,
+	author = "Nakanishi, Jun and Cory, Rick and Mistry, Michael and Peters, Jan and Schaal, Stefan",
+	booktitle = "{Intelligent Robots and Systems, 2005.(IROS 2005). 2005 IEEE/RSJ International Conference on}",
+	organization = "IEEE",
+	pages = "3901--3908",
+	title = "{Comparative experiments on task space control with redundancy resolution}",
+	year = "2005"
+}
+
+@inproceedings{gazebo,
+	author = "Koenig, Nathan and Howard, Andrew",
+	booktitle = "{Intelligent Robots and Systems, 2004.(IROS 2004). Proceedings. 2004 IEEE/RSJ International Conference on}",
+	organization = "IEEE",
+	pages = "2149--2154",
+	title = "{Design and use paradigms for gazebo, an open-source multi-robot simulator}",
+	volume = "3",
+	year = "2004"
+}
+
+@techreport{larsen1999fast,
+	author = "Larsen, Eric and Gottschalk, Stefan and Lin, Ming C and Manocha, Dinesh",
+	institution = "Technical Report TR99-018, Department of Computer Science, University of North Carolina",
+	title = "{Fast proximity queries with swept sphere volumes}",
+	year = "1999"
+}
+
+@incollection{sanchez2003single,
+	author = "S{\'a}nchez, Gildardo and Latombe, Jean-Claude",
+	booktitle = "{Robotics Research}",
+	pages = "403--417",
+	publisher = "Springer",
+	title = "{A single-query bi-directional probabilistic roadmap planner with lazy collision checking}",
+	year = "2003"
+}
+
+@inproceedings{Chen2013,
+	author = "Chen, Dong and Liu, Ziyuan and von Wichert, G.",
+	booktitle = "{Mobile Robots (ECMR), 2013 European Conference on}",
+	doi = "10.1109/ECMR.2013.6698866",
+	keywords = "dexterous manipulators; mobile robots; empirically-predefined position; generic arm-base coordinated grasping pipeline; generic grasping pipeline; hidden-unreachable object; mobile manipulation; modular design; object pose; operating environment; operating robot; optimal base position; robot arm; Collision avoidance; Grasping; Pipelines; Planning; Robot kinematics; Trajectory",
+	month = "Sept",
+	pages = "349--354",
+	title = "{Grasping on the move: A generic arm-base coordinated grasping pipeline for mobile manipulation}",
+	year = "2013"
+}
+
+@article{diankov2008openrave,
+	author = "Diankov, Rosen and Kuffner, James",
+	journal = "Robotics Institute, Pittsburgh, PA, Tech. Rep. CMU-RI-TR-08-34",
+	pages = "79",
+	title = "{Openrave: A planning architecture for autonomous robotics}",
+	year = "2008"
+}
+
+@inproceedings{pastor2012,
+	author = "Pastor, P. and Kalakrishnan, M. and Righetti, L. and Schaal, S.",
+	booktitle = "{Humanoid Robots (Humanoids), 2012 12th IEEE-RAS International Conference on}",
+	doi = "10.1109/HUMANOIDS.2012.6651537",
+	issn = "2164-0572",
+	keywords = "dexterous manipulators; learning (artificial intelligence); motion control; path planning; ASM; Barrett WAM/Hand; associative skill memories; complex manipulation skills; failure detection; grasping; haptic variables; imitation learning; kinesthetic variables; movement control; movement planning; movement primitives; robust manipulation skill; sensory associations; stereotypical movements; stereotypical sensory events; visual variables; Fingers; Force; Robot sensing systems; Torque; Trajectory; Uncertainty",
+	month = "Nov",
+	pages = "309--315",
+	title = "{Towards Associative Skill Memories}",
+	year = "2012"
+}
+
+@inproceedings{Dogar2010,
+	author = "Dogar, Mehmet and Srinivasa, Siddhartha",
+	booktitle = "{Proceedings of 2010 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2010)}",
+	month = "October",
+	title = "{Push-Grasping with Dexterous Hands: Mechanics and a Method}",
+	year = "2010"
+}
+
+@inproceedings{chang2010,
+	author = "Chang, Lillian Y and Srinivasa, Siddhartha S and Pollard, Nancy S",
+	booktitle = "{Robotics and Automation (ICRA), 2010 IEEE International Conference on}",
+	organization = "IEEE",
+	pages = "2697--2704",
+	title = "{Planning pre-grasp manipulation for transport tasks}",
+	year = "2010"
+}
+
+@inproceedings{chitta2010,
+	author = "Chitta, S. and Cohen, B. and Likhachev, M.",
+	booktitle = "{Robotics and Automation (ICRA), 2010 IEEE International Conference on}",
+	doi = "10.1109/ROBOT.2010.5509475",
+	issn = "1050-4729",
+	keywords = "manipulators; mobile robots; motion control; path planning; PR2 robot; autonomous door opening; graph-based representation; mobile manipulator; motion computing; motion planning problem; pulling variety; pushing variety; Cameras; Educational technology; Geometry; Image segmentation; Intelligent robots; Layout; Pattern matching; Photometry; Robotics and automation; USA Councils",
+	month = "May",
+	pages = "1799--1806",
+	title = "{Planning for autonomous door opening with a mobile manipulator}",
+	year = "2010"
+}
+
+@inproceedings{hsiao2007grasping,
+	author = "Hsiao, Kaijen and Kaelbling, Leslie Pack and Lozano-Perez, Tomas",
+	booktitle = "{Robotics and Automation, 2007 IEEE International Conference on}",
+	organization = "IEEE",
+	pages = "4685--4692",
+	title = "{Grasping pomdps}",
+	year = "2007"
+}
+
+@inproceedings{zito2013sequential,
+	author = "Zito, Claudio and Kopicki, Marek S and Stolkin, Rustam and Borst, Christoph and Schmidt, Florian and Roa, Maximo A and Wyatt, Jeremy L",
+	booktitle = "{Intelligent Robots and Systems (IROS), 2013 IEEE/RSJ International Conference on}",
+	organization = "IEEE",
+	pages = "4013--4020",
+	title = "{Sequential trajectory re-planning with tactile information gain for dexterous grasping under object-pose uncertainty}",
+	year = "2013"
+}
+
+@book{thrun2005probabilistic,
+	author = "Thrun, Sebastian and Burgard, Wolfram and Fox, Dieter",
+	publisher = "MIT press",
+	title = "{Probabilistic robotics}",
+	year = "2005"
+}
+
+@inproceedings{Kazemi12,
+	address = "Sydney, Australia",
+	author = "Pollard, Moslem Kazemi AND Jean-Sebastien Valois AND J. Andrew Bagnell AND Nancy",
+	booktitle = "{Proceedings of Robotics: Science and Systems}",
+	month = "July",
+	title = "{Robust Object Grasping using Force Compliant Motion Primitives}",
+	year = "2012"
+}
+
+@article{Liegeois1977,
+	author = "Liegeois, A",
+	journal = "Systems, Man and Cybernetics, IEEE Transactions on",
+	keywords = "Adaptive control",
+	number = "12",
+	owner = "cd",
+	pages = "868--871",
+	timestamp = "2013.12.06",
+	title = "{Automatic Supervisory Control of the Configuration and Behavior of Multibody Mechanisms}",
+	volume = "7",
+	year = "1977"
+}
+
+@article{glover2008probabilistic,
+	author = "Glover, Jared and Rus, Daniela and Roy, Nicholas",
+	journal = "Proceedings of Robotics: Science and Systems IV, Zurich, Switzerland",
+	pages = "278--285",
+	title = "{Probabilistic models of object geometry for grasp planning}",
+	year = "2008"
+}
+
+@inproceedings{berenson2007grasp,
+	author = "Berenson, Dmitry and Diankov, Rosen and Nishiwaki, Koichi and Kagami, Satoshi and Kuffner, James",
+	booktitle = "{Humanoid Robots, 2007 7th IEEE-RAS International Conference on}",
+	organization = "IEEE",
+	pages = "42--48",
+	title = "{Grasp planning in complex scenes}",
+	year = "2007"
+}
+
+@article{bohg2010learning,
+	author = "Bohg, Jeannette and Kragic, Danica",
+	journal = "Robotics and Autonomous Systems",
+	number = "4",
+	pages = "362--377",
+	publisher = "Elsevier",
+	title = "{Learning grasping points with shape context}",
+	volume = "58",
+	year = "2010"
+}
+
+@inproceedings{eppner2013grasping,
+	author = "Eppner, Clemens and Brock, Oliver",
+	booktitle = "{Intelligent Robots and Systems (IROS), 2013 IEEE/RSJ International Conference on}",
+	organization = "IEEE",
+	pages = "4000--4006",
+	title = "{Grasping unknown objects by exploiting shape adaptability and environmental constraints}",
+	year = "2013"
+}
+
+@article{fischinger2015learning,
+	author = "Fischinger, David and Weiss, Astrid and Vincze, Markus",
+	journal = "The International Journal of Robotics Research",
+	number = "9",
+	pages = "1167--1194",
+	publisher = "SAGE Publications",
+	title = "{Learning grasps with topographic features}",
+	volume = "34",
+	year = "2015"
+}
+
+@article{pinto2015supersizing,
+	author = "Pinto, Lerrel and Gupta, Abhinav",
+	journal = "arXiv preprint arXiv:1509.06825",
+	title = "{Supersizing Self-supervision: Learning to Grasp from 50K Tries and 700 Robot Hours}",
+	year = "2015"
+}
+
+@inproceedings{kopicki2014learning,
+	author = "Kopicki, Marek and Detry, Renaud and Schmidt, Florian and Borst, Christopher and Stolkin, Rustam and Wyatt, John L",
+	booktitle = "{Robotics and Automation (ICRA), 2014 IEEE International Conference on}",
+	organization = "IEEE",
+	pages = "5358--5365",
+	title = "{Learning dexterous grasps that generalise to novel objects by combining hand and contact models}",
+	year = "2014"
+}
+
+@inproceedings{pelossof2004svm,
+	author = "Pelossof, Raphael and Miller, Andrew and Allen, Peter and Jebara, Tony",
+	booktitle = "{Robotics and Automation, 2004. Proceedings. ICRA'04. 2004 IEEE International Conference on}",
+	organization = "IEEE",
+	pages = "3512--3518",
+	title = "{An SVM learning approach to robotic grasping}",
+	volume = "4",
+	year = "2004"
+}
+
+@inproceedings{goldberg1990bayesian,
+	author = "Goldberg, Kenneth Y and Mason, Matthew T",
+	booktitle = "{Robotics and Automation, 1990. Proceedings., 1990 IEEE International Conference on}",
+	organization = "IEEE",
+	pages = "1264--1269",
+	title = "{Bayesian grasping}",
+	year = "1990"
+}
+
+@inproceedings{Hsiao2011baysian,
+	author = "Hsiao, Kaijen and Ciocarlie, Matei and Brook, Peter",
+	booktitle = "{ICRA 2011 Workshop on Mobile Manipulation: Integrating Perception and Manipulation}",
+	owner = "cd",
+	timestamp = "2013.12.30",
+	title = "{Bayesian grasp planning}",
+	year = "2011"
+}
+
+@article{dang2014stable,
+	author = "Dang, Hao and Allen, Peter K",
+	journal = "Autonomous Robots",
+	number = "4",
+	pages = "309--330",
+	publisher = "Springer",
+	title = "{Stable grasping under pose uncertainty using tactile feedback}",
+	volume = "36",
+	year = "2014"
+}
+
+@inproceedings{felip2009robust,
+	author = "Felip, Javier and Morales, Antonio",
+	booktitle = "{Intelligent Robots and Systems, 2009. IROS 2009. IEEE/RSJ International Conference on}",
+	organization = "IEEE",
+	pages = "1811--1816",
+	title = "{Robust sensor-based grasp primitive for a three-finger robot hand}",
+	year = "2009"
+}
+
+@inproceedings{dragiev2013uncertainty,
+	author = "Dragiev, Stanimir and Toussaint, Marc and Gienger, Michael",
+	booktitle = "{Robotics and Automation (ICRA), 2013 IEEE International Conference on}",
+	organization = "IEEE",
+	pages = "113--119",
+	title = "{Uncertainty aware grasping and tactile exploration}",
+	year = "2013"
+}
+
+@article{brost1988automatic,
+	author = "Brost, Randy C",
+	journal = "The International Journal of Robotics Research",
+	number = "1",
+	pages = "3--17",
+	publisher = "Sage Publications",
+	title = "{Automatic grasp planning in the presence of uncertainty}",
+	volume = "7",
+	year = "1988"
+}
+
+@article{paolini2014data,
+	author = "Paolini, Robert and Rodriguez, Alberto and Srinivasa, Siddhartha S and Mason, Matthew T",
+	journal = "The International Journal of Robotics Research",
+	number = "4",
+	pages = "600--615",
+	publisher = "SAGE Publications",
+	title = "{A data-driven statistical framework for post-grasp manipulation}",
+	volume = "33",
+	year = "2014"
+}
+
+@inproceedings{weisz2012pose,
+	author = "Weisz, Jonathan and Allen, Peter K",
+	booktitle = "{Robotics and Automation (ICRA), 2012 IEEE International Conference on}",
+	organization = "IEEE",
+	pages = "557--562",
+	title = "{Pose error robust grasping from contact wrench space metrics}",
+	year = "2012"
+}
+
+@inproceedings{christopoulos2007handling,
+	author = "Christopoulos, Vassilios N and Schrater, Paul",
+	booktitle = "{Intelligent Robots and Systems, 2007. IROS 2007. IEEE/RSJ International Conference on}",
+	organization = "IEEE",
+	pages = "1557--1563",
+	title = "{Handling shape and contact location uncertainty in grasping two-dimensional planar objects}",
+	year = "2007"
+}
+
+@article{li2016dexterous,
+	author = "Li, Miao and Hang, Kaiyu and Kragic, Danica and Billard, Aude",
+	journal = "Robotics and Autonomous Systems",
+	pages = "352--364",
+	publisher = "Elsevier",
+	title = "{Dexterous grasping under shape uncertainty}",
+	volume = "75",
+	year = "2016"
+}
+
+@article{williams2007gaussian,
+	author = "Williams, Oliver and Fitzgibbon, Andrew",
+	journal = "Gaussian Proc. in Practice",
+	title = "{Gaussian process implicit surfaces}",
+	year = "2007"
+}
+
+@article{rasmussen2006gaussian,
+	author = "Rasmussen, Carl Edward",
+	publisher = "Citeseer",
+	title = "{Gaussian processes for machine learning}",
+	year = "2006"
+}
+
+@inproceedings{redmon2015real,
+	author = "Redmon, Joseph and Angelova, Anelia",
+	booktitle = "{Robotics and Automation (ICRA), 2015 IEEE International Conference on}",
+	organization = "IEEE",
+	pages = "1316--1322",
+	title = "{Real-time grasp detection using convolutional neural networks}",
+	year = "2015"
+}
+
+@article{ijspeert2013dynamical,
+	author = "Ijspeert, Auke Jan and Nakanishi, Jun and Hoffmann, Heiko and Pastor, Peter and Schaal, Stefan",
+	journal = "Neural computation",
+	number = "2",
+	pages = "328--373",
+	publisher = "MIT Press",
+	title = "{Dynamical movement primitives: learning attractor models for motor behaviors}",
+	volume = "25",
+	year = "2013"
+}
+
+@inproceedings{Huebner2008,
+	author = "Huebner, K. and Kragic, D.",
+	booktitle = "{Intelligent Robots and Systems, 2008. IROS 2008. IEEE/RSJ International Conference on}",
+	doi = "10.1109/IROS.2008.4650722",
+	keywords = "manipulators",
+	month = "Sept",
+	organization = "IEEE",
+	pages = "1765--1770",
+	title = "{Selection of robot pre-grasps using box-based shape approximation}",
+	year = "2008"
+}
+
+@inproceedings{dogar2010push,
+	author = "Dogar, Mehmet R and Srinivasa, Siddhartha S",
+	booktitle = "{Intelligent Robots and Systems (IROS), 2010 IEEE/RSJ International Conference on}",
+	organization = "IEEE",
+	pages = "2123--2130",
+	title = "{Push-grasping with dexterous hands: Mechanics and a method}",
+	year = "2010"
+}
+
+@article{deimel2015novel,
+	author = "Deimel, Raphael and Brock, Oliver",
+	journal = "The International Journal of Robotics Research",
+	pages = "0278364915592961",
+	publisher = "SAGE Publications",
+	title = "{A novel type of compliant and underactuated robotic hand for dexterous grasping}",
+	year = "2015"
+}
+
+@misc{nlopt,
+	author = "Johnson, Steven G",
+	title = "{The NLopt nonlinear-optimization package}",
+	year = "2010"
+}
+
+@inproceedings{herzog2012template,
+	author = "Herzog, Alexander and Pastor, Peter and Kalakrishnan, Mrinal and Righetti, Ludovic and Asfour, Tamim and Schaal, Stefan",
+	booktitle = "{Robotics and Automation (ICRA), 2012 IEEE International Conference on}",
+	organization = "IEEE",
+	pages = "2379--2384",
+	title = "{Template-based learning of grasp selection}",
+	year = "2012"
+}
+
+@article{FischingerWV15,
+  author    = {David Fischinger and Astrid Weiss and Markus Vincze},
+  title     = {Learning Grasps with Topographic Features},
+  journal   = {I. J. Robotic Res.},
+  volume    = {34},
+  number    = {9},
+  pages     = {1167--1194},
+  year      = {2015},
+  url       = {http://dx.doi.org/10.1177/0278364915577105},
+  doi       = {10.1177/0278364915577105},
+  timestamp = {Fri, 31 Jul 2015 01:00:00 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/ijrr/FischingerWV15},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}

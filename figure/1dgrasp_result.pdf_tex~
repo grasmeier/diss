@@ -1,0 +1,84 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file '1dgrasp_result.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{259.14177195bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.53878291)%
+    \put(0,0){\includegraphics[width=\unitlength]{1dgrasp_result.pdf}}%
+    \put(0.10645047,0.07782926){\makebox(0,0)[b]{\smash{0.2}}}%
+    \put(0.17365847,0.07782926){\makebox(0,0)[b]{\smash{0.25}}}%
+    \put(0.26177086,0.07782926){\makebox(0,0)[b]{\smash{0.3}}}%
+    \put(0.3286578,0.07782926){\makebox(0,0)[b]{\smash{0.35}}}%
+    \put(0.41709202,0.07782926){\makebox(0,0)[b]{\smash{0.4}}}%
+    \put(0.06175062,0.11747529){\makebox(0,0)[b]{\smash{-0.5}}}%
+    \put(0.0471283,0.20834569){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{-0.25}}}%
+    \put(0.10098319,0.2990734){\makebox(0,0)[b]{\smash{0}}}%
+    \put(0.04727977,0.39361625){\makebox(0,0)[b]{\smash{0.25}}}%
+    \put(0.06882628,0.48783572){\makebox(0,0)[b]{\smash{0.5}}}%
+    \put(0.23572334,0.17044266){\rotatebox{-22.99998994}{\makebox(0,0)[lb]{\smash{0.04}}}}%
+    \put(0.27366859,0.2315428){\rotatebox{-25.9999936}{\makebox(0,0)[lb]{\smash{0.08}}}}%
+    \put(0.3373403,0.31547369){\rotatebox{-51.0000188}{\makebox(0,0)[lb]{\smash{0.12}}}}%
+    \put(-0.00262284,0.29227363){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{u2}}}%
+    \put(0.27521735,0.04530457){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{u1}}}%
+    \put(0.6186134,0.07989586){\makebox(0,0)[lb]{\smash{0.2}}}%
+    \put(0.6858214,0.07989586){\makebox(0,0)[lb]{\smash{0.25}}}%
+    \put(0.77393378,0.07989586){\makebox(0,0)[lb]{\smash{0.3}}}%
+    \put(0.84082072,0.07989586){\makebox(0,0)[lb]{\smash{0.35}}}%
+    \put(0.92925494,0.07989586){\makebox(0,0)[lb]{\smash{0.4}}}%
+    \put(0.5646522,0.11678554){\makebox(0,0)[lb]{\smash{-0.5}}}%
+    \put(0.61314612,0.30114001){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.5594427,0.39568285){\makebox(0,0)[lb]{\smash{0.25}}}%
+    \put(0.5809892,0.48990232){\makebox(0,0)[lb]{\smash{0.5}}}%
+    \put(0.83117349,0.2963164){\rotatebox{-3.00000411}{\makebox(0,0)[lb]{\smash{0.7}}}}%
+    \put(0.50606188,0.30724929){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{u2}}}%
+    \put(0.78390226,0.05101891){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{u1}}}%
+    \put(0.259928,0.00491839){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(a)}}}%
+    \put(0.79044278,0.00406992){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(b)}}}%
+    \put(0.56010443,0.21119222){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{-0.25}}}%
+  \end{picture}%
+\endgroup%

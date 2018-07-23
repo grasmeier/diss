@@ -1,0 +1,63 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'time_evolution.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{469.69487106bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.23939936)%
+    \put(0,0){\includegraphics[width=\unitlength]{time_evolution.pdf}}%
+    \put(0.87983941,0.00316119){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{t[s]}}}%
+    \put(0.97154996,0.20349796){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{ 0 mm}}}%
+    \put(0.97087164,0.00993449){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{10.0 mm}}}%
+    \put(0.96807551,0.10882357){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{5 mm}}}%
+    \put(0.25838373,0.00096068){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.41376004,0.00015894){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6}}}%
+    \put(0.55294126,0.00015894){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{9}}}%
+    \put(0.69324491,0.00144172){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{25}}}%
+    \put(0.8311434,0.0008003){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{30}}}%
+  \end{picture}%
+\endgroup%

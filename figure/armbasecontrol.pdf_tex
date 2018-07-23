@@ -1,0 +1,103 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'armbasecontrol.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{596.375bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.54447689)%
+    \put(0,0){\includegraphics[width=\unitlength]{armbasecontrol.pdf}}%
+    \put(0.06978777,0.38497158){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{redundancy
+resolution}}}%
+    \put(0.34071596,0.49613133){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint 1}}}%
+    \put(0.34071596,0.44860006){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint 2}}}%
+    \put(0.34071596,0.40106879){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint 3}}}%
+    \put(0.33753199,0.02031021){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Command
+allocation}}}%
+    \put(0.34071596,0.24896879){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint n}}}%
+    \put(0.34194122,0.53001586){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{base}}}%
+    \put(0.34339884,0.34939707){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{arm}}}%
+    \put(0.59722485,0.02107975){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Low level
+controller}}}%
+    \put(0.34132859,0.31075942){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint 1}}}%
+    \put(0.63176,0.46968284){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{base
+controller}}}%
+    \put(0.63214023,0.30332338){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{arm
+controller}}}%
+    \put(0.7164453,0.52257986){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{  desired linear
+ angular velocity}}}%
+    \put(0.74792488,0.4308647){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{odometry}}}%
+    \put(0.78244693,0.28737408){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{actual joint 
+position}}}%
+    \put(0.78285442,0.35867096){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{desired joint 
+position}}}%
+    \put(0.43949721,0.47780843){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{desired joint 
+    velocity}}}%
+    \put(0.43968663,0.31405489){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{desired joint 
+    velocity}}}%
+    \put(0.1619508,0.39961904){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint  velocity}}}%
+    \put(0.89689359,0.41360601){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Mobile platform}}}%
+    \put(0.91992114,0.2463998){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Arm}}}%
+    \put(0.91267104,0.08076849){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Gripper}}}%
+    \put(0.34128896,0.07886122){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint n}}}%
+    \put(0.34190159,0.14065185){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint 1}}}%
+    \put(0.33810708,0.17911798){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Gripper}}}%
+    \put(0.07288678,0.13344515){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Gripper
+posture
+generation}}}%
+    \put(0.62912948,0.13188584){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Gripper
+controller}}}%
+    \put(0.43299172,0.14710384){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{desired joint 
+    velocity}}}%
+    \put(0.15608063,0.12410773){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint  velocity}}}%
+    \put(0.78276231,0.18325782){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{desired joint 
+position}}}%
+    \put(0.78432457,0.10371188){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{Tactile pressure}}}%
+    \put(0.9191159,0.08420061){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Arm}}}%
+    \put(0.930057,0.02170871){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Hardware
+Driver}}}%
+  \end{picture}%
+\endgroup%
