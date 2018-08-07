@@ -69,7 +69,7 @@ Later, as the assembly tasks to be executed becomes more complex, so decomposing
 \includegraphics[width=0.7\linewidth]{rw_skill2.png}
 \captionsetup{justification=raggedright}
 \caption{An example of skill architecture proposed in ~\cite{Wallhoff2010}. A knowledge-based system control module infers the required skills to execute a given task. The skill acquisition is based on multi-modal inputs. A skill is learned by teaching the correct sequence of atomic actions. }
-\label{fig:rw_skillarchitecture}       % Give a unique label
+\label{fig:rw_skillarchitecture2}       % Give a unique label
 \end{figure} 
 Recently, More work focus on how to acquire the skills more intuitively, since designing a generic applicable skill normally requires expert knowledge \cite{Hovland1996}. Learning by demonstration is one of the promising methods that reduce the effort of developing a skill. Dillmann et al.~\cite{Dillmann2000} followed programming by demonstration paradigm and provided a system approach which allows integrating the overall process of skill transfer from a human to a robotic manipulation system.   Skubic et al. proposed a method to teach robots force based assembly skills from human demonstration. They modeled sensorimotor skills using a hybrid control model, which provides a mechanism for combining continuous low-level force control with higher-level discrete event control. Methods for acquiring assembly skills can also be found in the context of human-robot collaboration. Ogata et al.~\cite{Ogata2005} proposed an approach to human-robot collaboration based on quasi-symbolic expressions. A recurrent neural net with parametric bias  model is used to acquire the skills. Wallhoff et al.~\cite{Wallhoff2010} presented a hybrid assembly station, in which an industrial robot can learn new tasks from worker instructions. The learned task can be performed by both the robot and the human worker together in a shared workspace. 
 
@@ -689,21 +689,21 @@ In order to  evaluate the proposed approach for assembly tasks quantitatively, w
     \begin{subfigure}[t]{0.4\textwidth}
         \includegraphics[width=\textwidth]{compare_sequence_time-crop.pdf}
         \caption{Assembly sequence 1}
-        \label{fig:diff_initial_config1}
+        \label{fig:compare_sequence_assemby_sequence_1}
     \end{subfigure}
     ~
     \begin{subfigure}[t]{0.4\textwidth}
         \includegraphics[width=\textwidth]{compare_sequence_translation-crop.pdf}
         \caption{Assembly sequence 2 }
-        \label{fig:diff_initial_config2}
+        \label{fig:compare_sequence_assemby_sequence_2}
     \end{subfigure}
     ~
     \begin{subfigure}[t]{0.4\textwidth}
         \includegraphics[width=\textwidth]{compare_sequence_rotation-crop.pdf}
         \caption{Assembly sequence 3 }
-        \label{fig:diff_initial_config3}
+        \label{fig:compare_sequence_assemby_sequence_3}
     \end{subfigure}
-    \caption{Evaluation in terms of different assembly sequence}\label{fig:diff_initial_config_moveit}
+    \caption{Evaluation in terms of different assembly sequence}\label{fig:compare_sequence_config_moveit}
 \end{figure} 
 
 \paragraph{Validation on a real robot}
