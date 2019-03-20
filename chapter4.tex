@@ -4,7 +4,7 @@
 Grasping is usually associated with task intentions. The content of a task determines the grasping strategy needed.  For example, a bottle can be both successfully grasped from the side or from the top. When pouring is the task intention, the bottle has to be grasped from the side.  On the contrary, when the bottle is intended to be placed into a beer box, the right way to grasp the bottle is grasping from the top. In another example, an assembly task usually requires the parts to be putted together by following a certain direction, so how to (re)grab the parts before assembly must be considered. In this chapter, we introduce how to generate a suitable grasping strategy and corresponding motion trajectories in this scenario.
 
 \section{Introduction}
-Assembly is the act of combining components together in a logical sequence. Assembly widely exists in the chain of production. Conventional assembly tasks are either done manually or completed through a specially designed automation equipment. The traditional assembly automation is mainly aimed at mass production. The product usually has a long life cycle. The product parts and assembly processes do not need to be changed in a long time.  With the demand for personalized products, the traditional assembly automation is unable to meet the rapidly evolving product demand and labor costs. Moreover, the traditional assembly process is automated by designing special fixtures, grippers, even pre-programmed motion of robots. It requires significant effort to apply change to the assembly automation process. 
+Assembly is the act of combining components together in a logical sequence. Assembly widely exists in the chain of production. Conventional assembly tasks are either done manually or completed through a specially designed automation equipment. The traditional assembly automation is mainly aimed at mass production. The product usually has a long life cycle. The product parts and assembly processes do not need to be changed in a long time.  In order to meet the demand of production with small lot size, the traditional assembly automation is unable to meet the rapidly evolving product demand and labor costs. Moreover, the traditional assembly process is automated by designing special fixtures, grippers, even pre-programmed motion of robots. It requires significant effort to apply change to the assembly automation process. 
 
 General purpose mobile manipulators can help to increase the flexibility of assembly automation because it can be applied to various environments and perform different tasks. A general purpose mobile manipulator is an autonomous system, equipped with a perceptual system for sensing the environment, as well as an arm and a gripper for manipulating objects. Compare to a fix mounted robot arm, a mobile manipulator requires minor effort for setting up and can reach more area of space by moving itself. Especially in the situation where the workspace is limited, it can choose the best suitable position to perform manipulation tasks. Based on its flexibility, we chose it as the platform to solve assembly problems.
 
@@ -80,11 +80,319 @@ In both skills, the problem of generating a task oriented grasp is addressed. Th
 The proposed approach is generic and is hardware independent. Thus, we can apply the approach to any type of mobile manipulator. The parametrization of the skill framework is intuitive and flexible. Therefore it is suitable for executing a wide range of assembly tasks.
 
 \section{Framework description}
-The input of the framework is an assembly graph. The assembly graph contains all the information needed to perform an assembly task. As depicted in Fig.,  the basic structure of an assembly graph is a binary tree. The leaves of the tree represent the basic parts to be assembled. In each leaf, the properties of the basic parts such as the bounding box, the mesh model and the stable orientations are stored. The internal nodes of the tree represent a intermediate assembly state, while the root of the tree is the final assembled product. The siblings are connected with an additional node which stores geometric relationship about how they should attach to each other. The node also specifies which operation should be performed. This can be any operation needed to bring the parts together. Example operations are insertion, screwing, welding, etc. 
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.5\linewidth]{skill_framework.png}
+\captionsetup{justification=raggedright}
+\caption{The structure of the framework}
+\label{fig:assembly_skill_framework}       % Give a unique label
+\end{figure} 
+The general structure of the skill framework is depicted in Fig.~\ref{fig:assembly_skill_framework}. 
+The input of the framework is an assembly graph. The assembly graph contains all the information needed to perform an assembly task. As depicted in Fig.~\ref{fig:assembly_graph}, the basic structure of an assembly graph is a binary tree. The leaves of the tree represent the basic parts to be assembled. In each leaf, the properties of the basic parts such as the bounding box, the mesh model and the stable orientations are stored. The internal nodes of the tree represent a intermediate assembly state, while the root of the tree is the final assembled product. The siblings are connected with an additional node which stores geometric relationship about how they should attach to each other. The node also specifies which operation should be performed. This can be any operation needed to bring the parts together. Example operations are insertion, screwing, welding, etc. Finally, a list of assembly steps can be generated by extracting the pairs of siblings from the bottom to the top of the graph. 
 
-A list of assembly steps can be generated by extracting the pairs of siblings from the bottom to the top of the graph. To complete a step, a sequence of high level skills must be specified. The high level skills specifies the tasks that the robot need to perform. For demonstrating the advantage of the framework,  two types of high level skills are elaborated this work. They are aimed to handle a commonly used operation in assembly, namely insertion.  The one we call it `Pick and Reconfigure' skill and the other we call it `Pick and Insert' skill. The `Pick and Reconfigure' skill aims to change the orientation of a part, so that the desired surface lies in favor of the next task. To realize this skill, a robot must have a gripper as its end-effector. The `Pick and Insert' skill allows a robot to pick another part and perform the actual insert action. 
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{assembly_graph.png}
+\captionsetup{justification=raggedright}
+\caption{Assembly graph}
+\label{fig:assembly_graph}       % Give a unique label
+\end{figure} 
+The information of an assembly step need to be transformed into a sequence of actions that a robot can perform. In our framework, the sequence of actions are generated by the skills which are provided by the skill library. As shown in Fig.~\ref{fig:skill_library}, two types of skills are defined in the library: high-level skills and low-level skills. A high level skill specifies a high-level task the robot need to perform. The high level skills are reusable functions which provided by the skill library. In order to make the high-level skill independent of the assembly parts, we need further elements to make high-level skill reusable and configurable. These elements are called low-level skills. Low-level skills are elementary functions or actions that are reusable across different high-level skills.  Example of low-level skills can be `detect object pose', `open/close gripper', `plan trajectory', etc. To realize a specific high-level skill, selected low-level skills are organized in a finite state machine. The finite state machine realizes the internal logic and action sequences. 
 
-In order to make the high-level skill independent of the assembly parts, we need further elements to make high-level skill reusable and configurable. These elements are called low-level skills. Low-level skills are elementary functions or actions that are reusable across different high-level skills.  Example of low-level skills can be `detect object pose', `open/close gripper', `plan trajectory', etc. To realize a specific high-level skill, selected low-level skills are organized in a skill state machine. The skill state machine realizes the internal logic and action sequences. 
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{skill_library.png}
+\captionsetup{justification=raggedright}
+\caption{Skill library}
+\label{fig:skill_library}  % Give a unique label
+\end{figure} 
+
+The assembly program is generated by parametrization of the high-level skills in each assembly step. Which high-level skills to choose and in which order to perform depend on the operation type of the assembly step and the capability of the robot. For demonstrating the advantage of the framework on an one-arm mobile manipulator, two types of high level skills are elaborated in this work. They are used to handle a commonly used operation in assembly, namely insertion. The one we call it `Pick and Reconfigure' skill (P.R) and the other we call it `Pick and Insert' skill (P.I). The P.R skill aims to change the orientation of a part, so that the desired surface lies in favor of the next task. To realize this skill, a robot must have a gripper as its end-effector. The P.I skill allows a robot to pick another part and perform the actual insert action.
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{assembly_program.png}
+\captionsetup{justification=raggedright}
+\caption{The assembly program}
+\label{fig:assembly_program}  % Give a unique label
+\end{figure}
+
+
+\section{High-level skills}
+
+
+
+%According to the aforementioned design principles, two high-level skills are proposed in this thesis.  They are `Pick \& Reconfigure' skill  (P.R.) and `Pick \& Insert' skill (P.I.). The framework is naturally not restricted to these two type of skills, for the purpose of demonstrating, it is sufficient to use these two skills to construct the assembly program. Further high-level skills can be added to address more complex assembly step.
+In the following, we elaborate how these two skills are realized. The P.I. skill is designed to perform an insert operation between two assembly parts, while P.R. skill is designed to reconfigure the pose of an assembly part. The P.R. skill is necessary because in some special cases, P.I. skill can not be executed directly. The direction of the insert motion does not meet a required constraint. For example, the insert motion is not perpendicular to a table top. In this case, P.R. skill has to be executed first to reconfigure the pose of the assembly part so that the object pose satisfies the insert condition.  
+
+\subsection{Pick \& Reconfigure}
+This high-level skill is realized as a hierarchical state machine. It includes seven low-level skills which are realized as states. The diagram of state transitions is visualized in Fig.~\ref{fig:place_skill}. The P.R. begins with the `Compute Optimal Base'. The skill calculates the optimal placement of platform for pick and place location so that the distance of platform movement in between is minimized. The output of this skill is the selected grasp configuration along with the IK solution both at the pick and the place location. After executing the `Compute Optimal Base,' the robot performs `Grasp Object.' The state that uses the skill is called `PickObject'. The `Grasp Object' has a hierarchical structure, which contains additional low-level skills. After executing `PickObject', the robot grasps an assembly part and holds it within the gripper (see. Fig.~\ref{fig:place_after_pick}). The next skill to execute is called `Move Joint Goal', which plans and executes the robot trajectory in joint space. The state that uses this skill is `MoveToPrePlace', which moves the robot to a so-called pre-place configuration (see. Fig.~\ref{fig:place_move_to_pre_place}). The input of this state is given by the output of `Compute Place Condition'. After the robot is succeeded to move to the pre-place configuration, the state `PlaceDown' which uses the `MoveCartesian' skill, plans and executes a linear trajectory towards a given pose configuration. In this case, the robot moves in a linear path to place the assembly part on a table-top (see. Fig.~\ref{fig:place_placedown}). After `PlaceDown' is executed, the robot starts to execute the `Control gripper' skill, in which the robot releases the object by state `ReleaseObject'. The next two skills are `DetachObject' and `UpdateObjectPose', which update the planning states in a motion planner so that the assembly part is not considered as a part of the robot later. The last state `MovetoPrePlaceLinear' uses `MoveCartesian' skill again to moves the gripper linearly back to the pre-place pose \ref{fig:place_detach_and_lift}.  Fig.~\ref{fig:example_reconfigure} illustrates a set of key system states during execution of the skill.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{place_skill.pdf}
+\captionsetup{justification=raggedright}
+\caption{The diagram of state transitions for `Pick \& Reconfigure' skill. The low-level skill `Compute Optimal Base' and `Grasp Object' have an hierarchical structure, which includes further low-level skills organized by a state machine. In total seven low-level skills are used in the high-level skill `Pick \& Reconfigure'. The low-level skill `Move Cartesian Goal' is used twice for `PlaceDown' and `MoveToPrePlaceLinear'.}
+\label{fig:place_skill}
+\end{figure}
+
+\begin{figure}[!htbp]
+\captionsetup[subfigure]{position=b}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{initial_state.png}
+        \caption{Initial state before executing the P.R. skill. }
+        \label{fig:place_intial_state}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{place_skill_after_pick.png}
+        \caption{After executing the `PickObject' state, a assembly part is picked by the robot. The color of the assembly part changes from green violet, which indicates that the assembly part is attached to the robot.}
+        \label{fig:place_after_pick}
+    \end{subfigure}
+    
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{MoveToPreplace.png}
+        \caption{The robot reconfigures the pose of the assembly part and moves to the pre-place location by  the  state `MoveToPrePlace'.}
+        \label{fig:place_move_to_pre_place}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{placedown.png}
+        \caption{The robot executes the `PlaceDown' state to put the assembly part down on the table.}
+        \label{fig:place_placedown}
+    \end{subfigure}
+     %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+      %(or a blank line to force the subfigure onto a new line)
+      
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{detachandlift.png}
+        \caption{The color of the assembly part changes back to green, which indicates that the robot releases and detaches the assembly part after executing the `DetachObject' state. To finish the P.R. skill, the robot moves in a linear path back to the pre-place configuration.}
+        \label{fig:place_detach_and_lift}
+    \end{subfigure}
+    \caption{An execution sequence of the Pick \& Reconfigure skill}\label{fig:example_reconfigure}
+\end{figure} 
+
+
+\subsection{Pick \& Insert}
+The Pick \& Insert skill is also realized as a state machine. Fig.~\ref{fig:insert_skill} illustrates the transition diagram of the states. The state machine also starts with `Compute Optimal Base' skill, which calculates the optimal placement of platform for  pick locations and insert locations. After the optimal platform location is computed, the state machine moves to `PickObjectA' state, which represents the `Grasp Object' skill. The successful execution of the skill leads to that the assembly part to be inserted is grasped by the robot (see Fig.~\ref{fig:insert_after_pick}). If the `PickObjectA' succeeds, the state machine transits to the `ComputePreinsertIK' state, which represents the skill `Compute pre-insert IK'. This skill calculates an IK solution of the arm, so that it can reach a so-called pre-insert pose. The pre-insert pose is defined as 5 cm linearly opposite from the insert pose. The platform positions for insert operation calculated by `Compute Optimal Base' is then used as the input for the next state `LocateObjectB'. This state represents a hierarchical low-level skill called `Move and locate'. The goal of this skill is to jointly move the mobile platform and arm of the robot to the configuration where it can first perceive and then reaches the target positions for insertion (Fig.~\ref{fig:insert_locate_object}). After the pose of target assembly part is located, the `Compute Insert Pose' skill is executed to update the desired gripper pose relative to the insert point. A successful execution of this skill leads to the states in which the robot actually performs the insert action in sequence, the state `MoveToPreInsert' followed by the `MoveToInsert' state. Former uses the `Move joint goal' skill, while latter uses the `Move cartesian goal' skill. After successful execution of both skills, the assembly part which grasped by the robot is by the moment inserted to the target point (Fig.~\ref{fig:insert_move_pre_insert}). Then the robot releases the assembly part by the state `Release Object', which is a `Control Gripper' skill. After the assembly part is physically released from the gripper, the `Detach Object' tells the motion planner to separate the assembly parts from the robot for the following actions. `Remove Parts' and `UpdateSubProduct' update the collision models of the `Pick \& Insert' skill. The collision models of the both assembly parts, which are involved in this skill, are merged together. The last state `Lift' plans for a lift action for the robot so that the gripper moves away from the assembled part (Fig.~\ref{fig:release_detach}).
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{insert_skill.pdf}
+\captionsetup{justification=raggedright}
+\caption{The state transition diagram of Pick \& Insert skill.}
+\label{fig:insert_skill}
+\end{figure}
+
+\begin{figure}[!htbp]
+\captionsetup[subfigure]{position=b}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{insert_after_pick.png}
+        \caption{The robot picks up an assembly part after executing the `Grasp Object' skill.}
+        \label{fig:insert_after_pick}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{insert_locate_object.png}
+        \caption{The robot moves to the arm and platform jointly to the configuration where it can perceives the object with its in-hand camera and also reaches the insert configuration.}
+        \label{fig:insert_locate_object}
+    \end{subfigure}
+    
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{insert_move_pre_insert.png}
+        \caption{After executing the `MoveToPreInsert' state, the robot moves its arm to a so-called pre-insert configuration.}
+        \label{fig:insert_move_pre_insert}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{insert_move_to_insert.png}
+        \caption{The actual insert action happens in the `MoveToInsert' state, in which the assembly part is inserted in another one.}
+        \label{fig:insert_move_to_insert}
+    \end{subfigure}
+     %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+      %(or a blank line to force the subfigure onto a new line)
+      
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{release_detach.png}
+        \caption{The robot releases the assembly part and moves back to the pre-insert configuration. The collision models of both assembly parts are merged into a new one.}
+        \label{fig:release_detach}
+    \end{subfigure}
+    \caption{An execution sequence of the Pick \& Insert skill}\label{fig:example_pick_and_insert}
+\end{figure} 
+
+
+
+
+
+\section{Low-level skills}
+
+low-level skills serve as basic elements to build a high-level skill. All the logic and execution sequence of low-level skills are handled by their corresponding high-level skill. In this way the specification of an assembly program is simplified. In total 11 low-level skills are implemented to realize the `Pick \& Insert' and `Pick \& Reconfigure' skill in our framework. Among them, some skills implement planning algorithms such as `Plan platform locations' skill, while other skills are used to  perform a physical action, such as `Grasp Object' skill. A list of low-level skills is explained as follows,
+
+\begin{itemize}
+\item  Move joint goal: This skill implements a collision-free movement of the robot from its current joint configuration to the desired goal configuration. We use `\textit{Moveit}' to manage the internal planning environment and RRT-connect to plan trajectories in joint configuration space. 
+\item  Move cartesian goal: This skill is used when a linear movement of the gripper is required, such as approaching a pre-touch configuration, lift up an object, etc.   
+\item  Control gripper: This skill is used to control the desired gripper configurations when the robot grasps a part or release a part. 
+\item Plan IK: This skill is used to solve an inverse kinematic query.
+\item Detach object: This skill is used after the object is released from the gripper. It gives a signal to the internal motion planner that the object is not required to be considered as a part of the gripper. 
+\item Merge assembly parts: This skill is used when a part is inserted into another part. After an insert operation, the collision models of two separated parts are treated as a whole in the planning environment. 
+\item Remove part: This skill is used to remove the collision model of a part out of the planning environment. 
+\item Update object: This skill is used when the pose of a part is reconfigured. This skill updates the pose of the part. 
+\end{itemize}
+ Among all the skills we proposed, three of them have a hierarchical structure, which means they depend on other low-level skills to realize its functionality. In the following, we will elaborate the following hierarchical skills `Plan platform locations', `Move and locate' and `Grasp object'.
+\begin{itemize}
+\item Plan platform locations 
+\end{itemize}
+This skill addresses one of the aforementioned challenge: Optimal placing of a mobile manipulator. For the high-level assembly skills we have proposed, it is required to plan two platform locations, one for picking an assembly part and the other for placing or inserting the part. Ideally, the distance between them should be as close as possible, so that the distance that a robot traverses can be kept in minimal. Additionally, two constraints should be satisfied at the planned locations. First, joint configurations of an arm must stay away from the singularity. This condition guarantees that a valid linear approach motion for grasping or insertion exists. Second, the part must lie inside the field of view of the robot's camera in each planned location. This constraint allows the robot to locate the pose of assembly parts before it performs a grasping or an insertion action. 
+
+Let's specify $p_1$ as the gripper pose for picking an assembly part,  $p_2$ as the gripper pose for either placing or inserting the assembly part. $p_3$ is the position of an assembly part to be picked, while $p_4$ is the insert position of a target object. The problem of planning platform locations can be formulated as follows. Given $p_1, p_2, p_3, p_4$, the objective is to find the configurations of joints $\underline{c}_1$ that planned for the pick location and $\underline{c}_2$ that planned for the place or the insert location, that 
+
+\begin{equation}
+\begin{aligned}
+&\text{minimizes} &  |h(\underline{c}_1) - h(\underline{c}_2)| \\
+&\text{subject to}  &g(\underline{c}_1) = p_1, \\
+& & g(\underline{c}_2) = p_2, \\
+& & \text{proj}(p_3, \underline{c}_1) \leqslant \underline{w}, \;  \\
+& & \text{proj}(p_4, \underline{c}_2) \leqslant \underline{w}, \;  \\
+& & \text{manip}(\underline{c}_i)\geqslant \epsilon, \; i 
+= 1,2.
+\end{aligned}
+\label{eq:minimize}
+\end{equation} 
+where $h(\bullet)$ extracts the virtual joint position of a platform. The cost function to be minimized is the distance between platform positions. $g(\bullet)$ calculates the forward kinematics of a given joint configuration. The equality constraints require that $\underline{c}_1$ and $\underline{c}_2$ are the inverse kinematic solution of $p_1$ and $p_2$. The first two inequality constraint calculate a back projection from 3D points in the world to 2D points in the image. The 3D point here is the position of an assembly part. $\underline{w}$ is the pixel width and height of a camera image. This constraint requires that the assembly part should lie in the field of view of the camera. In a head mounted camera setting, these constraints are mandatory, because the assembly parts have to be located in the configurations before the robot performs the actual grasping and insertion action. In the case that the camera is fix mounted to the gripper (eye-in-hand setting), these constraints are optional, because the robot can additionally move the arm to satisfy the constraints for perception and then perform the actual grasping or insertion. The third inequality constraint calculates the manipulability. It guarantees the robot can perform a linear motion to approach grasp pose or insert pose. $\text{manip}(\bullet)$ is a function which computes the distance from a given arm joint configuration to a singular configuration. According to \cite{yoshikawa1985manipulability}, the measure of manipulability can be calculated by 
+\begin{equation}
+\text{manip}(\bullet) =  \sqrt{ det(J  J^\text{T} )},
+\end{equation} 
+where $J$ is the Jacobian matrix of a given arm configuration. 
+
+According to Eq.~\ref{eq:minimize}, we formulate a non-linear non-convex constraint optimization problem. The dimension of the solution space is equal to 20. It is not trivial to solve this problem exactly. We propose to solve this problem as follows. First, we draw valid samples from the solution space, which must satisfy all the constraints. Second, we compute the cost of each sample and choose the sample which has the minimal cost as the solution. Algorithm.~\ref{algo:planplatform} gives details of the method. One challenge is how to draw samples efficiently since the unit time used to draw a valid sample affects the total computational time of the algorithm. In line 2 and line 6 of the algorithm~\ref{algo:planplatform}, we use `ComputeIK' function to generate the samples. The function is an inverse kinematic (IK) solver which computes the whole body joint configurations given an input pose. The output of the function automatically satisfies the first two equality constraints. Furthermore, since the robot has 10 DoF, it is possible to meet the additional inequality constraints with its redundancy. The technique we used to exploit the redundancy in the IK solver is called null space optimization~(\cite{Liegeois1977},\cite{Nakanishi2005}). Here each inequality constraints is defined as a cost function of joint positions. For the first two inequality constraints, the cost can be defined by the quadratic distance of a given point $p_3$ or $p_4$ to the optical axis of the camera. The sum of negative gradient of the cost functions determines the direction to minimize the total cost. The IK solver works in an iterative fashion. The solver begins with an initial estimate. In each iteration, an error $\underline{e}$ is computed between the input pose and the pose computed by the initial estimate. The initial estimate $\underline{q}_{\text{init}}$ is then updated by 
+\begin{equation}
+\underline{q}_{\text{init}}  \leftarrow \underline{q}_{\text{init}} + \underline{q}_t + \underline{q}_p,
+\end{equation}
+until the pose error $\underline{e}$ is smaller than a threshold. Here $\underline{q}_t$ and $\underline{q}_p$ are computed by 
+\begin{equation}
+\underline{q}_t = \underline{J}^+ \underline{e}
+\end{equation}
+and 
+\begin{equation}
+\underline{q}_p =  (\underline{I} - \underline{J}^+  \underline{J} )\underline{\xi},
+\end{equation}
+where $\underline{J}^+ = \underline{J}^T(\underline{J}\underline{J}^T)^{-1}$ and $\underline{I}$ is a unit matrix. $\underline{\xi}$ is the sum of negative gradient of the cost functions. If the output of `ComputeIK' is verified by collision checking, the result is then considered as a valid sample. Since this is an iterative method to solve inverse kinematic, the convergence of the algorithm depends on the initial estimate $\underline{q}_{\text{init}}$. An initial estimate that is far from the solution influences speed and convergence of the algorithm. We propose to use an IK database to accelerate the algorithm. As soon as a valid solution is computed, we save it into the database. To compute the IK for a new pose, we randomly select a solution from the database to initiate the algorithm. This method increases the probability of finding a solution, while reduces the total time of planning.
+
+\begin{algorithm}
+\begin{algorithmic}[1] 
+\STATE Input: $p_1$, $p_2$, $p_3$, $p_4$,$n$
+\STATE $\underline{c}_1^{*} =  \text{computeIK}(p_1, p_3) $
+\STATE $ \underline{h}_1 = \underline{c}_1^{*} [1:3] $
+\STATE $ \text{cost}^* = 10^5 $
+\FOR { $i$ from 1 to $n$ } 
+\STATE  $\underline{c}_2 = \text{computeIK}(p_2, p_4)$
+\STATE   $\underline{h}_2 = \underline{c}_2 [1:3]$
+\STATE   $\text{cost} = |\underline{h}_1 - \underline{h}_2|$
+\IF {  $\text{cost} <  \text{cost}^*$  }
+\STATE $\underline{c}_2^{*} = \underline{c}_2$
+\STATE $\text{cost}^* = \text{cost} $
+\ENDIF  
+\ENDFOR 
+\RETURN $ \underline{c}_1^{*} , \underline{c}_2^{*}$
+\caption {Plan platform locations}
+\label{algo:planplatform}
+\end{algorithmic}
+\end{algorithm}
+ 
+
+\begin{itemize}
+\item Move and locate
+\end{itemize}
+This low-level skill is designed for locating a target object by a hand-mounted camera prior to grasping or insertion. The state transition diagram of the skill is shown in Fig.~\ref{fig:move_and_locate_skill}. The skill begins with the `Get initial location' state, in which the initial pose of the target assembly part is determined. Based on the initial pose, `Plan camera pose' generates a camera viewing pose relative to the part. Then the robot uses `Move joint goal' skill to move its arm and platform jointly to the viewing pose. If the viewing pose is not reachable by the skill, `Plan camera pose' generates another viewing pose until the execution of  `Move joint goal' is successful. Since the virtual joint position of the platform is already planned by `Plan platform locations', `Move joint goal' guarantees after locating the assembly part, the robot can reach the grasp or insertion configuration. Finally, a `Locate object' is conducted to refine the pose of assembly part. 
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{move_and_locate.pdf}
+\captionsetup{justification=raggedright}
+\caption{The state transition diagram of `Move and locate' skill.}
+\label{fig:move_and_locate_skill}
+\end{figure}
+
+
+\begin{itemize}
+\item Grasp object
+\end{itemize}
+`Grasp object' is another hierarchical skill which is designed for picking up an assembly part. Similar to the previous low-level skills, it contains additional low-level skills to build up the internal logic. Fig.~\ref{fig:grasp_object} illustrates the transition diagram of this skill. The state machine starts with the `Verify Object' state, which checks whether the target assembly part is contained in the motion planning environment. If the verification succeeds, the state machine transits to the `Locate Object' state, which is a `Move and locate' skill. Since the object pose is relocated by this skill, `Compute pick condition' calculates again the inverse kinematic for the robot to reach the pre-grasp pose. This pose is defined 10 cm back from the final grasping pose. If the inverse kinematic solution exists, the robot opens its gripper to the pre-grasp posture by `Control gripper pre-grasp' state. The next skill to be executed is `Move joint goal', in which the robot moves its arm to the IK solution computed for the pre-grasp pose. After the robot reaches the pre-grasp pose, the state machine transits to `Grasp Strategy' state, which is a skill that evolves moving linearly towards the final grasp pose, then closing the gripper to reach force closure. The last state `Lift object' is a `Move cartesian goal' skill, in which the robot lifts the object from the working surface.  
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{grasp_object.pdf}
+\captionsetup{justification=raggedright}
+\caption{The state transition diagram of `Grasp object' skill.}
+\label{fig:grasp_object}
+\end{figure}
+
+
+
+\section{Grasp planing under task constraints}
+In the low-level skill `Grasp Object,' the robot need to find a suitable grasp configuration to execute a pickup task while without colliding with the environment. The selected grasp configuration has to fulfill the conditions which the object can be placed or inserted in the correct direction since the object model is known before the task. One can plan a set of possible stable grasp configurations for the object model using, e.g. a model based grasp planner \cite{Xue2009}. The problem can then be defined as follows. Given a set of stable grasp configurations, find the best setup which is suitable for the task.
+
+One naive approach to this problem is to check each possible grasp configuration using a brute force strategy. For each firm grasp in the set, the inverse kinematics (IK) of the robot will be calculated both for the pickup and place task. The grasp configuration will be selected if IK solutions exist in both cases. For the most real-world object, the number of available stable grasps is infinite. Because computing collision free IK is a quite expensive operation, this approach does not scale well with the number of firm grasps. To reduce the number of computing inverse kinematics, one needs to use the implicit task information which is already available. For a typical pick and place task, the orientation of the object before picking and after placing are given. This information can be regarded as a set of task constraint and is valuable for reducing the search space. 
+
+We propose to solve the problem in the following steps. First, we compute for each grasp the probability of success given a set of task constraints. Then we sorted the grasp configuration with respect to the probability value. At last, we evaluate the IK solution from the grasp configuration with the highest probability and return the first one which has IK solutions both for the pickup and for the place action. 
+
+\subsection{Grasp and task parameterization}
+
+A grasp can be parameterized in different ways. One common parametrization is to use 6-D to represent the spatial relation of the gripper to the object and a vector to represent the joint position for holding the object. However, this parameterization cannot generalize across different grippers. Depending on the shape and DOF, the grasp configuration for one gripper usually differs from another one despite grasping on the same points. To avoid this restriction, we focus on the antipodal grasp and assume that complex grippers can realize an antipodal grasp like a parallel gripper. Therefore, we can now use a tuple ($p_g$, $n_{ap}$, $n_{ef}$) to represent a grasp, where $p$ defines the 3-D position of the gripper, $n_{ap}$ defines the approach direction of the gripper, and $n_{ef}$ gives the line of establishing the force. 
+
+In order to perform a task on an object, the robot should choose a grasping orientation, in which the target surfaces are not covered by the gripper. Therefore the target surfaces can be specified as a set of planes. The planes represent the task constraints of grasping. We further categorize the planes into two types. One type represents the contact face prior to grasping. The other type represents the surface relevant to the task after grasping. The task constraints are defined as 
+\begin{equation}
+T= \{n^1_p, n^2_p \cdots n^i_p \},
+\end{equation}
+where $n^i_p$ denotes the normal of $i$-th planes associated to the object and task. 
+
+\subsection{Probabilistic model of satisfying task constraints}
+In this section, we derive the probabilistic model of grasp success with the help of the following example. Fig.~\ref{fig:task_grasp_12} gives the case of two everyday grasp situations. The robot must grasp the object placed on the table. In the first grasp situation, no task is explicitly specified. The only constraint is the table plane.  As shown in the Fig.~\ref{fig:task_grasp1}, the grasp configurations shown in red are infeasible. The one is to grasp the object from the bottom while the other is to gasp from the right side. In both cases, the grasping cannot be performed because the gripper will collide with the table.  One possible grasp configuration is shown in green. In this configuration, the robot approaches the object from the top, and the grasping force is established on the side. The second grasp situation (Fig.~\ref{fig:task_grasp2}) is to grasp the object and place it on the table in the desired orientation. The face in blue shows the desired contact face after pick and place. We also provide one bad grasp configurations (red), which can not be used for executing the place operation. By contrast, the grasp configuration in green can be used both by pick-up action and place action. 
+\begin{figure}[!htbp]
+\captionsetup[subfigure]{position=b}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{task_grasp1.png}
+        \caption{Case 1: no task is specified for grasping. The only constraint is the table plane.}
+        \label{fig:task_grasp1}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{task_grasp2.png}
+        \caption{Case 2: the object must be placed in the desired orientation. The blue surface specifies a task constraint which must be considered during grasp planning.}
+        \label{fig:task_grasp2}
+    \end{subfigure}
+    \caption{Two common grasp situations}\label{fig:task_grasp_12}
+\end{figure}
+
+From the observation above, the approaching and the closing direction of the gripper are essential to the task-oriented grasping. The smaller the angle between the approaching direction and the normal of the table, the more unlikely the gripper will be in a collision. The larger the angle between the closing direction and the normal of the table, the gripper is more unlikely in a collision. By considering the mentioned two factors, we propose the following mixture model to calculate the probability of task satisfaction $P(C = 1|u, t)$.  
+\begin{equation}
+P(C = 1|u, t) = \frac{1}{n_p} \sum_{i =1}^{n_p} (\omega_1 \cdot P_1 + \omega_2 \cdot P_2), 
+\end{equation}
+where $n_p$ denotes the number of planes to be considered. $P_1$ and $P_2$ denote the probability of success by considering the approaching and closing direction individually. $\omega_1$ and $\omega_2$ are the weighting factors which satisfies the following equation,
+\begin{equation}
+\omega_1 +  \omega_2 = 1
+\end{equation}
+The value $P_1$ is further given by 
+\begin{equation}
+P_1 = \frac{4}{\pi^2} \cdot \theta_{cp}^2, \quad \theta_{cp}\in(0,\frac{\pi}{2}). 
+\end{equation}
+$\theta_{cp}$ is the angle between the normal of the plane and the vector which represents the gripper closing direction. $P_2$ is given by 
+\begin{equation}
+P_1 = \frac{1}{\pi^2} \cdot (\pi^2 - \theta_{ap}^2 ), \quad \theta_{ap}\in(0, \pi),
+\end{equation} 
+where $\theta_{ap}$ is the angle between the normal of the plane and the approaching vector. 
+
+
+
+
+
+
+
+
+
+
+																					
+
+\subsection{Grasp realization}
 
 
 \section{Challenges in mobile manipulation} \label{sec:challengesmb}
@@ -356,219 +664,6 @@ The first principle means the condition of executing one high-level skill does n
 \paragraph{Semantically meaningful}
 A high-level skill should generate control signals to the robot so that the robot actually performs an assembly action. It is expected that after performing a high-level skill, a pair of assembly parts is put into together or ready to be assembled.
  
-\subsubsection{High-level skills}
-According to the aforementioned design principles, two high-level skills are proposed in this thesis.  They are `Pick \& Reconfigure' skill  (P.R.) and `Pick \& Insert' skill (P.I.). The framework is naturally not restricted to these two type of skills, for the purpose of demonstrating, it is sufficient to use these two skills to construct the assembly program. Further high-level skills can be extended to address more complex tasks. 
-
-In Fig.~\ref{fig:abstract_skill}, the abstract structure of P.R. and P.I skill is given. P.I. skill is designed to perform an insert operation between two assembly parts, while P.R. skill is designed to reconfigure the pose of an assembly part. The reason that we require a P.R. skill is  that in some special cases, P.I. skill can not be executed directly because the direction of insert motion does not meet a required constraint. For example, the insert motion is not perpendicular to a table top. In this case, P.R. skill has to be executed first to reconfigure the pose of the assembly part so that the object pose satisfies the insert condition. In the following, we elaborate how these two skills are realized. 
-
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.9\linewidth]{abstract_skills.pdf}
-\captionsetup{justification=raggedright}
-\caption{The high-level skills P.R and P.I share a very similar structure. These skills can be realized by  combining reusable low-level skills.}
-\label{fig:abstract_skill}
-\end{figure}
-
-
-\begin{itemize}
-\item Pick \& Reconfigure 
-\end{itemize}
-This high-level skill is realized as a hierarchical state machine. It includes seven low-level skills which are realized as states. The diagram of state transitions is visualized in Fig.~\ref{fig:place_skill}. The P.R. begins with the `Compute Optimal Base'. The skill calculates the optimal placement of platform for pick and place location so that the distance of platform movement in between is minimized. The output of this skill is the selected grasp configuration along with the IK solution both at the pick and the place location. After executing the `Compute Optimal Base,' the robot performs `Grasp Object.' The state that uses the skill is called `PickObject'. The `Grasp Object' has a hierarchical structure, which contains additional low-level skills. After executing `PickObject', the robot grasps an assembly part and holds it within the gripper (see. Fig.~\ref{fig:place_after_pick}). The next skill to execute is called `Move Joint Goal', which plans and executes the robot trajectory in joint space. The state that uses this skill is `MoveToPrePlace', which moves the robot to a so-called pre-place configuration (see. Fig.~\ref{fig:place_move_to_pre_place}). The input of this state is given by the output of `Compute Place Condition'. After the robot is succeeded to move to the pre-place configuration, the state `PlaceDown' which uses the `MoveCartesian' skill, plans and executes a linear trajectory towards a given pose configuration. In this case, the robot moves in a linear path to place the assembly part on a table-top (see. Fig.~\ref{fig:place_placedown}). After `PlaceDown' is executed, the robot starts to execute the `Control gripper' skill, in which the robot releases the object by state `ReleaseObject'. The next two skills are `DetachObject' and `UpdateObjectPose', which update the planning states in a motion planner so that the assembly part is not considered as a part of the robot later. The last state `MovetoPrePlaceLinear' uses `MoveCartesian' skill again to moves the gripper linearly back to the pre-place pose \ref{fig:place_detach_and_lift}.  Fig.~\ref{fig:example_reconfigure} illustrates a set of key system states during execution of the skill.
-
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.9\linewidth]{place_skill.pdf}
-\captionsetup{justification=raggedright}
-\caption{The diagram of state transitions for `Pick \& Reconfigure' skill. The low-level skill `Compute Optimal Base' and `Grasp Object' have an hierarchical structure, which includes further low-level skills organized by a state machine. In total seven low-level skills are used in the high-level skill `Pick \& Reconfigure'. The low-level skill `Move Cartesian Goal' is used twice for `PlaceDown' and `MoveToPrePlaceLinear'.}
-\label{fig:place_skill}
-\end{figure}
-
-\begin{figure}[!htbp]
-\captionsetup[subfigure]{position=b}
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{initial_state.png}
-        \caption{Initial state before executing the P.R. skill. }
-        \label{fig:place_intial_state}
-    \end{subfigure}
-    ~
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{place_skill_after_pick.png}
-        \caption{After executing the `PickObject' state, a assembly part is picked by the robot. The color of the assembly part changes from green violet, which indicates that the assembly part is attached to the robot.}
-        \label{fig:place_after_pick}
-    \end{subfigure}
-    
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{MoveToPreplace.png}
-        \caption{The robot reconfigures the pose of the assembly part and moves to the pre-place location by  the  state `MoveToPrePlace'.}
-        \label{fig:place_move_to_pre_place}
-    \end{subfigure}
-    ~
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{placedown.png}
-        \caption{The robot executes the `PlaceDown' state to put the assembly part down on the table.}
-        \label{fig:place_placedown}
-    \end{subfigure}
-     %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
-      %(or a blank line to force the subfigure onto a new line)
-      
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{detachandlift.png}
-        \caption{The color of the assembly part changes back to green, which indicates that the robot releases and detaches the assembly part after executing the `DetachObject' state. To finish the P.R. skill, the robot moves in a linear path back to the pre-place configuration.}
-        \label{fig:place_detach_and_lift}
-    \end{subfigure}
-    \caption{An execution sequence of the Pick \& Reconfigure skill}\label{fig:example_reconfigure}
-\end{figure} 
-
-
-\begin{itemize}
-\item Pick \& Insert 
-\end{itemize}
-The Pick \& Insert skill is also realized as a state machine. Fig.~\ref{fig:insert_skill} illustrates the transition diagram of the states. The state machine also starts with `Compute Optimal Base' skill, which calculates the optimal placement of platform for  pick locations and insert locations. After the optimal platform location is computed, the state machine moves to `PickObjectA' state, which represents the `Grasp Object' skill. The successful execution of the skill leads to that the assembly part to be inserted is grasped by the robot (see Fig.~\ref{fig:insert_after_pick}). If the `PickObjectA' succeeds, the state machine transits to the `ComputePreinsertIK' state, which represents the skill `Compute pre-insert IK'. This skill calculates an IK solution of the arm, so that it can reach a so-called pre-insert pose. The pre-insert pose is defined as 5 cm linearly opposite from the insert pose. The platform positions for insert operation calculated by `Compute Optimal Base' is then used as the input for the next state `LocateObjectB'. This state represents a hierarchical low-level skill called `Move and locate'. The goal of this skill is to jointly move the mobile platform and arm of the robot to the configuration where it can first perceive and then reaches the target positions for insertion (Fig.~\ref{fig:insert_locate_object}). After the pose of target assembly part is located, the `Compute Insert Pose' skill is executed to update the desired gripper pose relative to the insert point. A successful execution of this skill leads to the states in which the robot actually performs the insert action in sequence, the state `MoveToPreInsert' followed by the `MoveToInsert' state. Former uses the `Move joint goal' skill, while latter uses the `Move cartesian goal' skill. After successful execution of both skills, the assembly part which grasped by the robot is by the moment inserted to the target point (Fig.~\ref{fig:insert_move_pre_insert}). Then the robot releases the assembly part by the state `Release Object', which is a `Control Gripper' skill. After the assembly part is physically released from the gripper, the `Detach Object' tells the motion planner to separate the assembly parts from the robot for the following actions. `Remove Parts' and `UpdateSubProduct' update the collision models of the `Pick \& Insert' skill. The collision models of the both assembly parts, which are involved in this skill, are merged together. The last state `Lift' plans for a lift action for the robot so that the gripper moves away from the assembled part (Fig.~\ref{fig:release_detach}).
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.9\linewidth]{insert_skill.pdf}
-\captionsetup{justification=raggedright}
-\caption{The state transition diagram of Pick \& Insert skill.}
-\label{fig:insert_skill}
-\end{figure}
-
-\begin{figure}[!htbp]
-\captionsetup[subfigure]{position=b}
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{insert_after_pick.png}
-        \caption{The robot picks up an assembly part after executing the `Grasp Object' skill.}
-        \label{fig:insert_after_pick}
-    \end{subfigure}
-    ~
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{insert_locate_object.png}
-        \caption{The robot moves to the arm and platform jointly to the configuration where it can perceives the object with its in-hand camera and also reaches the insert configuration.}
-        \label{fig:insert_locate_object}
-    \end{subfigure}
-    
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{insert_move_pre_insert.png}
-        \caption{After executing the `MoveToPreInsert' state, the robot moves its arm to a so-called pre-insert configuration.}
-        \label{fig:insert_move_pre_insert}
-    \end{subfigure}
-    ~
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{insert_move_to_insert.png}
-        \caption{The actual insert action happens in the `MoveToInsert' state, in which the assembly part is inserted in another one.}
-        \label{fig:insert_move_to_insert}
-    \end{subfigure}
-     %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
-      %(or a blank line to force the subfigure onto a new line)
-      
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{release_detach.png}
-        \caption{The robot releases the assembly part and moves back to the pre-insert configuration. The collision models of both assembly parts are merged into a new one.}
-        \label{fig:release_detach}
-    \end{subfigure}
-    \caption{An execution sequence of the Pick \& Insert skill}\label{fig:example_pick_and_insert}
-\end{figure} 
-
-\subsubsection{Low-level skills}
-low-level skills serve as basic elements to build a high-level skill. All the logic and execution sequence of low-level skills are handled by their corresponding high-level skill. In this way the specification of an assembly program is simplified. In total 11 low-level skills are implemented to realize the `Pick \& Insert' and `Pick \& Reconfigure' skill in our framework. Among them, some skills implement planning algorithms such as `Plan platform locations' skill, while other skills are used to  perform a physical action, such as `Grasp Object' skill. A list of low-level skills is explained as follows,
-
-\begin{itemize}
-\item  Move joint goal: This skill implements a collision-free movement of the robot from its current joint configuration to the desired goal configuration. We use `\textit{Moveit}' to manage the internal planning environment and RRT-connect to plan trajectories in joint configuration space. 
-\item  Move cartesian goal: This skill is used when a linear movement of the gripper is required, such as approaching a pre-touch configuration, lift up an object, etc.   
-\item  Control gripper: This skill is used to control the desired gripper configurations when the robot grasps a part or release a part. 
-\item Plan IK: This skill is used to solve an inverse kinematic query.
-\item Detach object: This skill is used after the object is released from the gripper. It gives a signal to the internal motion planner that the object is not required to be considered as a part of the gripper. 
-\item Merge assembly parts: This skill is used when a part is inserted into another part. After an insert operation, the collision models of two separated parts are treated as a whole in the planning environment. 
-\item Remove part: This skill is used to remove the collision model of a part out of the planning environment. 
-\item Update object: This skill is used when the pose of a part is reconfigured. This skill updates the pose of the part. 
-\end{itemize}
- Among all the skills we proposed, three of them have a hierarchical structure, which means they depend on other low-level skills to realize its functionality. In the following, we will elaborate the following hierarchical skills `Plan platform locations', `Move and locate' and `Grasp object'.
-\begin{itemize}
-\item Plan platform locations 
-\end{itemize}
-This skill addresses one of the aforementioned challenge: Optimal placing of a mobile manipulator. For the high-level assembly skills we have proposed, it is required to plan two platform locations, one for picking an assembly part and the other for placing or inserting the part. Ideally, the distance between them should be as close as possible, so that the distance that a robot traverses can be kept in minimal. Additionally, two constraints should be satisfied at the planned locations. First, joint configurations of an arm must stay away from the singularity. This condition guarantees that a valid linear approach motion for grasping or insertion exists. Second, the part must lie inside the field of view of the robot's camera in each planned location. This constraint allows the robot to locate the pose of assembly parts before it performs a grasping or an insertion action. 
-
-Let's specify $p_1$ as the gripper pose for picking an assembly part,  $p_2$ as the gripper pose for either placing or inserting the assembly part. $p_3$ is the position of an assembly part to be picked, while $p_4$ is the insert position of a target object. The problem of planning platform locations can be formulated as follows. Given $p_1, p_2, p_3, p_4$, the objective is to find the configurations of joints $\underline{c}_1$ that planned for the pick location and $\underline{c}_2$ that planned for the place or the insert location, that 
-
-\begin{equation}
-\begin{aligned}
-&\text{minimizes} &  |h(\underline{c}_1) - h(\underline{c}_2)| \\
-&\text{subject to}  &g(\underline{c}_1) = p_1, \\
-& & g(\underline{c}_2) = p_2, \\
-& & \text{proj}(p_3, \underline{c}_1) \leqslant \underline{w}, \;  \\
-& & \text{proj}(p_4, \underline{c}_2) \leqslant \underline{w}, \;  \\
-& & \text{manip}(\underline{c}_i)\geqslant \epsilon, \; i 
-= 1,2.
-\end{aligned}
-\label{eq:minimize}
-\end{equation} 
-where $h(\bullet)$ extracts the virtual joint position of a platform. The cost function to be minimized is the distance between platform positions. $g(\bullet)$ calculates the forward kinematics of a given joint configuration. The equality constraints require that $\underline{c}_1$ and $\underline{c}_2$ are the inverse kinematic solution of $p_1$ and $p_2$. The first two inequality constraint calculate a back projection from 3D points in the world to 2D points in the image. The 3D point here is the position of an assembly part. $\underline{w}$ is the pixel width and height of a camera image. This constraint requires that the assembly part should lie in the field of view of the camera. In a head mounted camera setting, these constraints are mandatory, because the assembly parts have to be located in the configurations before the robot performs the actual grasping and insertion action. In the case that the camera is fix mounted to the gripper (eye-in-hand setting), these constraints are optional, because the robot can additionally move the arm to satisfy the constraints for perception and then perform the actual grasping or insertion. The third inequality constraint calculates the manipulability. It guarantees the robot can perform a linear motion to approach grasp pose or insert pose. $\text{manip}(\bullet)$ is a function which computes the distance from a given arm joint configuration to a singular configuration. According to \cite{yoshikawa1985manipulability}, the measure of manipulability can be calculated by 
-\begin{equation}
-\text{manip}(\bullet) =  \sqrt{ det(J  J^\text{T} )},
-\end{equation} 
-where $J$ is the Jacobian matrix of a given arm configuration. 
-
-According to Eq.~\ref{eq:minimize}, we formulate a non-linear non-convex constraint optimization problem. The dimension of the solution space is equal to 20. It is not trivial to solve this problem exactly. We propose to solve this problem as follows. First, we draw valid samples from the solution space, which must satisfy all the constraints. Second, we compute the cost of each sample and choose the sample which has the minimal cost as the solution. Algorithm.~\ref{algo:planplatform} gives details of the method. One challenge is how to draw samples efficiently since the unit time used to draw a valid sample affects the total computational time of the algorithm. In line 2 and line 6 of the algorithm~\ref{algo:planplatform}, we use `ComputeIK' function to generate the samples. The function is an inverse kinematic (IK) solver which computes the whole body joint configurations given an input pose. The output of the function automatically satisfies the first two equality constraints. Furthermore, since the robot has 10 DoF, it is possible to meet the additional inequality constraints with its redundancy. The technique we used to exploit the redundancy in the IK solver is called null space optimization~(\cite{Liegeois1977},\cite{Nakanishi2005}). Here each inequality constraints is defined as a cost function of joint positions. For the first two inequality constraints, the cost can be defined by the quadratic distance of a given point $p_3$ or $p_4$ to the optical axis of the camera. The sum of negative gradient of the cost functions determines the direction to minimize the total cost. The IK solver works in an iterative fashion. The solver begins with an initial estimate. In each iteration, an error $\underline{e}$ is computed between the input pose and the pose computed by the initial estimate. The initial estimate $\underline{q}_{\text{init}}$ is then updated by 
-\begin{equation}
-\underline{q}_{\text{init}}  \leftarrow \underline{q}_{\text{init}} + \underline{q}_t + \underline{q}_p,
-\end{equation}
-until the pose error $\underline{e}$ is smaller than a threshold. Here $\underline{q}_t$ and $\underline{q}_p$ are computed by 
-\begin{equation}
-\underline{q}_t = \underline{J}^+ \underline{e}
-\end{equation}
-and 
-\begin{equation}
-\underline{q}_p =  (\underline{I} - \underline{J}^+  \underline{J} )\underline{\xi},
-\end{equation}
-where $\underline{J}^+ = \underline{J}^T(\underline{J}\underline{J}^T)^{-1}$ and $\underline{I}$ is a unit matrix. $\underline{\xi}$ is the sum of negative gradient of the cost functions. If the output of `ComputeIK' is verified by collision checking, the result is then considered as a valid sample. Since this is an iterative method to solve inverse kinematic, the convergence of the algorithm depends on the initial estimate $\underline{q}_{\text{init}}$. An initial estimate that is far from the solution influences speed and convergence of the algorithm. We propose to use an IK database to accelerate the algorithm. As soon as a valid solution is computed, we save it into the database. To compute the IK for a new pose, we randomly select a solution from the database to initiate the algorithm. This method increases the probability of finding a solution, while reduces the total time of planning.
-
-\begin{algorithm}
-\begin{algorithmic}[1] 
-\STATE Input: $p_1$, $p_2$, $p_3$, $p_4$,$n$
-\STATE $\underline{c}_1^{*} =  \text{computeIK}(p_1, p_3) $
-\STATE $ \underline{h}_1 = \underline{c}_1^{*} [1:3] $
-\STATE $ \text{cost}^* = 10^5 $
-\FOR { $i$ from 1 to $n$ } 
-\STATE  $\underline{c}_2 = \text{computeIK}(p_2, p_4)$
-\STATE   $\underline{h}_2 = \underline{c}_2 [1:3]$
-\STATE   $\text{cost} = |\underline{h}_1 - \underline{h}_2|$
-\IF {  $\text{cost} <  \text{cost}^*$  }
-\STATE $\underline{c}_2^{*} = \underline{c}_2$
-\STATE $\text{cost}^* = \text{cost} $
-\ENDIF  
-\ENDFOR 
-\RETURN $ \underline{c}_1^{*} , \underline{c}_2^{*}$
-\caption {Plan platform locations}
-\label{algo:planplatform}
-\end{algorithmic}
-\end{algorithm}
- 
-
-\begin{itemize}
-\item Move and locate
-\end{itemize}
-This low-level skill is designed for locating a target object by a hand-mounted camera prior to grasping or insertion. The state transition diagram of the skill is shown in Fig.~\ref{fig:move_and_locate_skill}. The skill begins with the `Get initial location' state, in which the initial pose of the target assembly part is determined. Based on the initial pose, `Plan camera pose' generates a camera viewing pose relative to the part. Then the robot uses `Move joint goal' skill to move its arm and platform jointly to the viewing pose. If the viewing pose is not reachable by the skill, `Plan camera pose' generates another viewing pose until the execution of  `Move joint goal' is successful. Since the virtual joint position of the platform is already planned by `Plan platform locations', `Move joint goal' guarantees after locating the assembly part, the robot can reach the grasp or insertion configuration. Finally, a `Locate object' is conducted to refine the pose of assembly part. 
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.6\linewidth]{move_and_locate.pdf}
-\captionsetup{justification=raggedright}
-\caption{The state transition diagram of `Move and locate' skill.}
-\label{fig:move_and_locate_skill}
-\end{figure}
-
-
-\begin{itemize}
-\item Grasp object
-\end{itemize}
-`Grasp object' is another hierarchical skill which is designed for picking up an assembly part. Similar to the previous low-level skills, it contains additional low-level skills to build up the internal logic. Fig.~\ref{fig:grasp_object} illustrates the transition diagram of this skill. The state machine starts with the `Verify Object' state, which checks whether the target assembly part is contained in the motion planning environment. If the verification succeeds, the state machine transits to the `Locate Object' state, which is a `Move and locate' skill. Since the object pose is relocated by this skill, `Compute pick condition' calculates again the inverse kinematic for the robot to reach the pre-grasp pose. This pose is defined 10 cm back from the final grasping pose. If the inverse kinematic solution exists, the robot opens its gripper to the pre-grasp posture by `Control gripper pre-grasp' state. The next skill to be executed is `Move joint goal', in which the robot moves its arm to the IK solution computed for the pre-grasp pose. After the robot reaches the pre-grasp pose, the state machine transits to `Grasp Strategy' state, which is a skill that evolves moving linearly towards the final grasp pose, then closing the gripper to reach force closure. The last state `Lift object' is a `Move cartesian goal' skill, in which the robot lifts the object from the working surface.  
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.6\linewidth]{grasp_object.pdf}
-\captionsetup{justification=raggedright}
-\caption{The state transition diagram of `Grasp object' skill.}
-\label{fig:grasp_object}
-\end{figure}
 
 \subsection{Assembly parts centric models}
 The aforementioned skills need additional information about the assembly parts to perform tasks. We propose assembly parts centric models to describe them. The assembly parts centric model include a collision model, a grasp model and a task model. The collision model defines the geometry constraint of an assembly part. The parametrization of the collision models typically contains a set of shape primitives such as boxes,   cylinders or spheres. The model is used both in motion planning and inverse kinematics so that the robot is aware of the presence of the assembly-parts during trajectory planning. 
